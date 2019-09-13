@@ -10,8 +10,7 @@ a la hora de aprender una lengua.
 Cuando se aprende una nueva lengua, además de la gramática, una parte muy importante
 es el vocabulario. Gestionar y almacenar el vocabulario que se quiere aprender por medios
 convencionales es costoso e ineficiente, ya que buscar una palabra o expresión concreta u
-organizar el vocabulario por categorías lleva un tiempo considerable, además de requerir
-mucho material, como por ejemplo papel.
+organizar el vocabulario por categorías lleva un tiempo considerable.
 
 ## ¿Cuál es la idea?
 
