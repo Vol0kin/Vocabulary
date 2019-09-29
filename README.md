@@ -2,7 +2,7 @@
 
 ## ¿Qué es VocabulaRBy?
 
-VocabulaRBy pretende ser un micro-servicio que permita la gestión de vocabulario
+VocabulaRBy pretende ser un microservicio que permita la gestión de vocabulario
 a la hora de aprender una lengua.
 
 ## ¿Por qué VocabulaRBy?
@@ -12,13 +12,19 @@ es el vocabulario. Gestionar y almacenar el vocabulario que se quiere aprender p
 convencionales es costoso e ineficiente, ya que buscar una palabra o expresión concreta u
 organizar el vocabulario por categorías lleva un tiempo considerable.
 
-## ¿Cuál es la idea?
+## ¿De dónde surge la idea?
+
+La idea surge de que muchas personas necesitan un sistema rápido y sencillo de utilizar
+para gestionar el vocabulario de una lengua. También, muchas de ellas creen que es conveniente
+y práctico tener un sistema de gestión al que puedan acceder en cualquier momento.
+
+## ¿Cuál es la idea general?
 
 La idea principal es, como se ha comentado anteriormente, facilitar la gestión de
 vocabulario. Para ello, se pretende que el usuario sea capaz de almacenar en algún tipo
 de **sistema de almacenamiento** las palabras o expresiones que quiera aprender, asignándoles
 una categoría (sustantivo, adjetivo, verbo, etc.), y permitiendo insertar junto a ellas
-una serie de definiciones o traducciones.
+una serie de definiciones o traducciones, las cuáles serán *descripciones de la palabra*.
 
 Posteriormente, el usuario podrá modificar estas descripciones, añadiendo o quitando
 definiciones o traducciones, y se le permitirá consultar palabras concretas para obtener
@@ -26,10 +32,14 @@ las descripciones, o bien todas las palabras de una categoría, si quiere dedica
 a aprender, por ejemplo, los verbos que tiene guardados.
 
 El usuario también podrá eliminar las palabras cuando crea que ya no necesita que estén en
-su lista de palabras por aprender, debido a que por ejemplo ya la ha aprendido.
+su lista de palabras por aprender, debido a que por ejemplo ya las ha aprendido.
 
-## ¿Cómo se pretende implementar?
+## Implementación
 
-En un principio, se quiere intentar implementar este micro-servicio utilizando **Ruby** y
-el sistema de almacenamiento que se considere oportuno.
+Se va a implementar el sistema en **Node.js**. Para almacenar las palabras, se usará un
+sistema de amacenamiento (una base de datos). Como la información no parece ser muy
+estructurada, se usará algún tipo de base de datos no relacional, como por ejemplo
+*MongoDB*.
 
+Al ser un microservicio, se tiene en mente que toda la comunicación se pueda hacer mediante
+una API **REST**, lo cuál implicará utilizar las cabeceras y peticiones típicas de *HTTP*.
