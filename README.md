@@ -51,6 +51,8 @@ una arquitectura **REST**, lo cuál implicará utilizar las cabeceras y peticion
 En este proyecto se van a utilizar las siguientes tecnologías, tanto para su desarrollo como
 para su posterior despliegue:
 
+- [Node.js](https://nodejs.org/en/): Como se ha dicho antes, se desarrollará el servicio en este lenguaje.
+Se usará además el gestor de paquetes que viene incluído con él, **npm**.
 - [Express](http://expressjs.com/): Es el *framework* para desarrollar aplicaciones web que
 se va a utilizar, debido a que permite desarrollar aplicaciones de forma sencilla y rápida.
 Además de eso, es *open source* y dispone de una amplia documentación.
@@ -60,7 +62,8 @@ a las funcionalidades que se irán incluyendo en el microservicio. Se ha elegido
 - [MongoDB](https://www.mongodb.com/): Será la base de datos a utilizar. Se ha elegido porque es
 *no relacional*, basada en documentos, *open source* y tiene una amplia documentación, además de
 que se puede usar con una gran variedad de lenguajes.
-- Para gestionar los *logs*, se utilizará o bien [Logstash](https://www.elastic.co/es/products/logstash)
-o bien [Winston](https://www.npmjs.com/package/winston).
+- Para gestionar los *logs*, se utilizará [Logstash](https://www.elastic.co/es/products/logstash)
+combinado con [Winston](https://www.npmjs.com/package/winston). De ser necesario, se añadirán más
+sistemas para gestionar *logs* más adelante, y se indicará aquí.
 - [Docker](https://www.docker.com/): Se utilizará para crear *containers*, en los cuáles se ejecutará
 la aplicación.
