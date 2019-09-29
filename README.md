@@ -45,3 +45,22 @@ estructurada. Se utilizará alguna como por ejemplo *MongoDB*.
 Al ser un microservicio, se tiene en mente que toda la comunicación se pueda hacer mediante
 una arquitectura **REST**, lo cuál implicará utilizar las cabeceras y peticiones típicas de
 *HTTP* para comunicarse con el sistema.
+
+## :wrench: Tecnologías a utilizar
+
+En este proyecto se van a utilizar las siguientes tecnologías, tanto para su desarrollo como
+para su posterior despliegue:
+
+- [Express](http://expressjs.com/): Es el *framework* para desarrollar aplicaciones web que
+se va a utilizar, debido a que permite desarrollar aplicaciones de forma sencilla y rápida.
+Además de eso, es *open source* y dispone de una amplia documentación.
+- [Jest](https://jestjs.io/): Es el *framework* de tests que se usará para hacer *unit testing*
+a las funcionalidades que se irán incluyendo en el microservicio. Se ha elegido porque es
+*open source* y hay mucha documentación disponible.
+- [MongoDB](https://www.mongodb.com/): Será la base de datos a utilizar. Se ha elegido porque es
+*no relacional*, basada en documentos, *open source* y tiene una amplia documentación, además de
+que se puede usar con una gran variedad de lenguajes.
+- Para gestionar los *logs*, se utilizará o bien [Logstash](https://www.elastic.co/es/products/logstash)
+o bien [Winston](https://www.npmjs.com/package/winston).
+- [Docker](https://www.docker.com/): Se utilizará para crear *containers*, en los cuáles se ejecutará
+la aplicación.
