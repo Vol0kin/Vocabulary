@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/Vol0kin/VocabulaRBy/issues"
   },
-  "homepage": "https://github.com/Vol0kin/VocabulaRBy#readme"
+  "homepage": "https://github.com/Vol0kin/VocabulaRBy#readme",
+  "devDependencies": {
+    "jest": "^24.9.0"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongodb": "^3.3.2",
+    "winston": "^3.2.1"
+  }
 }
