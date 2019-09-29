@@ -65,5 +65,8 @@ que se puede usar con una gran variedad de lenguajes.
 - Para gestionar los *logs*, se utilizará [Logstash](https://www.elastic.co/es/products/logstash)
 combinado con [Winston](https://www.npmjs.com/package/winston). De ser necesario, se añadirán más
 sistemas para gestionar *logs* más adelante, y se indicará aquí.
+- [Travis CI](https://travis-ci.org/): Se utilizará para la integración contínua.
 - [Docker](https://www.docker.com/): Se utilizará para crear *containers*, en los cuáles se ejecutará
 la aplicación.
+- Para el despliegue en la nube, se usarán [Heroku](https://www.heroku.com/) e, idealmente,
+[Azure](https://azure.microsoft.com/es-es/).
