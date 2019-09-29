@@ -4,7 +4,7 @@
 
 ## :thinking: ¿Qué es VocabulaRBy?
 
-VocabulaRBy pretende ser un microservicio que permita la gestión de vocabulario
+VocabulaRBy es un microservicio que permite la gestión de vocabulario
 a la hora de aprender una lengua.
 
 ## :sunglasses: ¿Por qué VocabulaRBy?
