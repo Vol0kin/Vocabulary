@@ -1,6 +1,12 @@
+const fs = require('fs');
+
 // Definir la clase Vocabulary
-exports.Vocabulary = function(word, type, description) {
-	this.word = word;
-	this.type = type;
-	this.description = description;
+class Vocabulary {
+	constructor(word, type, description) {
+		this.word = word;
+		this.type = type;
+		this.description = description;
+	}
 }
+
+module.exports = Vocabulary;
