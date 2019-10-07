@@ -59,5 +59,5 @@ test("Recuperar una palabra de la 'BD' cuando se busca que todas tengan el mismo
 	var vocabulary = manager.getWordsSameType("verbo");
 
 	// Check if the response is the expected
-	expect(vocabulary).toEqual({word: "Comer", type: "verbo", description: ["Ingerir alimentos para obtener nutrientes"]});
+	expect(vocabulary).toEqual([{word: "Comer", type: "verbo", description: ["Ingerir alimentos para obtener nutrientes"]}]);
 });
