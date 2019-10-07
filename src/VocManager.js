@@ -19,7 +19,7 @@ class VocManager {
 		}
 	}
 
-	getWordByType(word, type) {
+	getVocabularyByType(word, type) {
 		// THIS PART WILL CHANGE WHEN A DATABASE IS USED
 		//*************************************************************************
 		// Read the words
@@ -34,7 +34,7 @@ class VocManager {
 		return vocabulary;
 	}
 
-	getWordsSameType(type) {
+	getVocabularySameType(type) {
 		// THIS PART WILL CHANGE WHEN A DATABASE IS USED
 		//*************************************************************************
 		var readObj = JSON.parse(fs.readFileSync("out-test/out-example.json"));
@@ -46,6 +46,16 @@ class VocManager {
 		//*************************************************************************
 
 		return vocabulary;
+	}
+
+	modifyDescription(word, type, newDesc) {
+		// TODO
+		// Needs a DB to be done
+		//*************************************************************************
+	}
+
+	deleteVocavulary(word, type){
+		// TODO
 	}
 }
 
