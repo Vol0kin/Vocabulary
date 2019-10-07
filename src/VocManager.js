@@ -13,15 +13,30 @@ class VocManager {
 	}
 
 	getWordByType(word, type) {
-		// Read a word and store it in an object
+		// THIS PART WILL CHANGE WHEN A DATABASE IS USED
+		//*************************************************************************
+		// Read the words
 		var readObj = JSON.parse(fs.readFileSync("out-test/out-example.json"));
 
-		// THIS PART WILL CHANGE WHEN A DATABASE IS USED
 		// Find the element by the word and type given
-		console.log(readObj);
 		var vocabulary = readObj.find(element =>
 			element.word == word && element.type == type
 		);
+		//*************************************************************************
+
+		return vocabulary;
+	}
+
+	getWordsSameType(type) {
+		// THIS PART WILL CHANGE WHEN A DATABASE IS USED
+		//*************************************************************************
+		var readObj = JSON.parse(fs.readFileSync("out-test/out-example.json"));
+
+		// Find the elements which have the same type
+		var vocabulary = readObj.filter(element =>
+			element.type == type
+		);
+		//*************************************************************************
 
 		return vocabulary;
 	}
