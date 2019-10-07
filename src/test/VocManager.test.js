@@ -38,7 +38,7 @@ test("Recuperar una palabra especifica de la 'BD'", () => {
 	]));
 
 	// Retrieve the word
-	var word = manager.getWordByType("Test", "noun");
+	var word = manager.getVocabularyByType("Test", "noun");
 
 	// Check if it has the same value
 	expect(word).toEqual(new Vocabulary("Test", "noun", ["Prueba de un componente"]));
@@ -53,7 +53,7 @@ test("Recuperar un grupo de palabras de la 'BD' que tengan el mismo tipo", () =>
 	]));
 
 	// Retrieve a group of words
-	var vocabulary = manager.getWordsSameType("noun");
+	var vocabulary = manager.getVocabularySameType("noun");
 
 	// Check if the response is the expected
 	expect(vocabulary.sort()).toEqual([
@@ -71,7 +71,7 @@ test("Recuperar una palabra de la 'BD' cuando se busca que todas tengan el mismo
 	]));
 
 	// Retrieve a words of the specified type
-	var vocabulary = manager.getWordsSameType("verb");
+	var vocabulary = manager.getVocabularySameType("verb");
 
 	// Check if the response is the expected
 	expect(vocabulary).toEqual([{word: "Comer", type: "verb", description: ["Ingerir alimentos para obtener nutrientes"]}]);
