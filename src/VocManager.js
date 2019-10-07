@@ -22,13 +22,17 @@ class VocManager {
 	getVocabularyByType(word, type) {
 		// THIS PART WILL CHANGE WHEN A DATABASE IS USED
 		//*************************************************************************
-		// Read the words
-		var readObj = JSON.parse(fs.readFileSync("out-test/out-example.json"));
+		// Check that the type is found in the allowed types
+		if (VocManager.ALLOWED_TYPES.indexOf(type) > -1) {
+			// Read the words
+			var readObj = JSON.parse(fs.readFileSync("out-test/out-example.json"));
 
-		// Find the element by the word and type given
-		var vocabulary = readObj.find(element =>
-			element.word == word && element.type == type
-		);
+			// Find the element by the word and type given
+			var vocabulary = readObj.find(element =>
+				element.word == word && element.type == type
+			);
+		}
+		
 		//*************************************************************************
 
 		return vocabulary;
@@ -37,25 +41,29 @@ class VocManager {
 	getVocabularySameType(type) {
 		// THIS PART WILL CHANGE WHEN A DATABASE IS USED
 		//*************************************************************************
-		var readObj = JSON.parse(fs.readFileSync("out-test/out-example.json"));
+		if (VocManager.ALLOWED_TYPES.indexOf(type) > -1) {
+			var readObj = JSON.parse(fs.readFileSync("out-test/out-example.json"));
 
-		// Find the elements which have the same type
-		var vocabulary = readObj.filter(element =>
-			element.type == type
-		);
+			// Find the elements which have the same type
+			var vocabulary = readObj.filter(element =>
+				element.type == type
+			);
+		}
 		//*************************************************************************
 
 		return vocabulary;
 	}
 
 	modifyDescription(word, type, newDesc) {
-		// TODO
-		// Needs a DB to be done
-		//*************************************************************************
+		if (VocManager.ALLOWED_TYPES.indexOf(type) > -1) {
+			// TODO
+		}
 	}
 
 	deleteVocavulary(word, type){
-		// TODO
+		if (VocManager.ALLOWED_TYPES.indexOf(type) > -1) {
+			// TODO
+		}
 	}
 }
 
