@@ -4,12 +4,19 @@ const fs = require("fs");
 class VocManager {
 	constructor() {}
 
-	storeWord(word, type, desc) {
-		// Create a new Vocabulary object
-		var voc = new Vocabulary(word, type, desc);
+	static get ALLOWED_TYPES() {
+		return ["noun", "verb", "adverb", "adjective", "preposition", "conjunction", "expression", "determiner"]
+	}
 
-		// Store it as a JSON object
-		fs.writeFileSync("out-test/out-example.json", JSON.stringify(voc));
+	storeWord(word, type, desc) {
+		// Check if the type is found in the allowed types
+		if (VocManager.ALLOWED_TYPES.indexOf(type) > -1) {
+			// Create a new Vocabulary object
+			var vocabulary = new Vocabulary(word, type, desc);
+			
+			// Store it as a JSON object
+			fs.writeFileSync("out-test/out-example.json", JSON.stringify(vocabulary));
+		}
 	}
 
 	getWordByType(word, type) {
