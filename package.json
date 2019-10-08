@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/Vol0kin/VocabulaRBy#readme",
   "devDependencies": {
-    "jest": "^24.9.0"
+    "jest": "^24.9.0",
+    "jsdoc": "^3.6.3"
   },
   "dependencies": {
     "express": "^4.17.1",
