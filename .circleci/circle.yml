@@ -1,0 +1,14 @@
+version: 2
+jobs:
+	build:
+		docker:
+			- image: circle/node:10.16.3
+		working_directory: ~/VocabulaRBy
+		steps:
+			- checkout
+			- run:
+				name: Install dependencies
+				command: npm install .
+			- run:
+				name: Test
+				command: npm test
