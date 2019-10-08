@@ -3,7 +3,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circle/node:lts
+      - image: circleci/node:10.16.3
     working_directory: ~/VocabulaRBy
     steps:
       - checkout
