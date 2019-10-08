@@ -10,7 +10,7 @@ jobs:
       - run:
           name: Install dependencies
           command: npm install .
-      -run:
+      - run:
           name: Create output directory for tests
           command: mkdir out-test
       - run:
