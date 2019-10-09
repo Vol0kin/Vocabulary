@@ -2,6 +2,18 @@
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [![Travis badge](https://travis-ci.org/Vol0kin/VocabulaRBy.svg?branch=master)](https://travis-ci.org/Vol0kin/VocabulaRBy) [![CircleCI](https://circleci.com/gh/Vol0kin/VocabulaRBy.svg?style=svg)](https://circleci.com/gh/Vol0kin/VocabulaRBy)
 
+## Tabla de contenidos
+<!--ts-->
+	* [¿Qué es VocabulaRBy?](#¿Que-es-VocabulaRBy?)
+	* [¿Por qué VocabulaRBy?](#¿Por-que-VocabulaRBy?)
+	* [¿De dónde surge la idea?](#¿De-donde-surge-la-idea?)
+	* [¿Cuál es la idea general del funcionamiento?](#¿Cual-es-la-idea-general-del-funcionamiento?)
+	* [Implementación](#Implementacion)
+	* [Tecnologías a utilizar](#Tecnologias-a-utilizar)
+	* [Instalación](#Instalacion)
+	* [Ejecución de los tests](#Ejecucion-de-los-tests)
+<!--te-->
+
 ## :thinking: ¿Qué es VocabulaRBy?
 
 VocabulaRBy es un microservicio que permite la gestión de vocabulario
@@ -76,7 +88,8 @@ la aplicación.
 
 ## :keyboard: Instalación y ejecución de los tests
 
-Para instalar el proyecto, lo primero que hay que hacer es clonar el repositorio con `git clone`.
+Para poder instalar el proyecto, se necesita tener instalado `node` y `npm` en el equipo. Teniendo esto,
+lo primero que hay que hacer es clonar el repositorio con `git clone`.
 Una vez hecho esto, nos situamos dentro del directorio e instalamos las dependencias del proyecto
 con la siguiente orden:
 
@@ -84,7 +97,9 @@ con la siguiente orden:
 npm install .
 ```
 
-Para ejecutar los tests, basta con hacer lo siguiente:
+## Ejecución de los tests
+
+Para ejecutar los tests, situándonos en el directorio clonado, basta con hacer lo siguiente:
 
 ```bash
 mkdir out-test
