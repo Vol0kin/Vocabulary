@@ -92,7 +92,7 @@ class VocManager {
 	}
 
 	/**
-	 * Remove a piece of vocabulary from identified by the word and the type
+	 * Remove a piece of vocabulary identified by the word and its type
 	 * @param {String} word - Word associated to the piece of vocabulary to be removed
 	 * @param {String} type - Type of the vocabulary to be removed
 	 */
