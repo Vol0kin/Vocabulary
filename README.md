@@ -65,7 +65,10 @@ que se puede usar con una gran variedad de lenguajes.
 - Para gestionar los *logs*, se utilizará [Logstash](https://www.elastic.co/es/products/logstash)
 combinado con [Winston](https://www.npmjs.com/package/winston). De ser necesario, se añadirán más
 sistemas para gestionar *logs* más adelante, y se indicará aquí.
-- [Travis CI](https://travis-ci.org/): Se utilizará para la integración contínua.
+- [JSDoc](https://www.npmjs.com/package/jsdoc): Para generar la documentación se utiliza esta API,
+la cuál es fácil de instalar y utilizar, además de que es open source.
+- Para la integración contínua se utilizarán dos sistemas: [Travis CI](https://travis-ci.org/) y
+[Circle CI](https://circleci.com/). Aquí se pueden ver los motivos por los que se han elegido.
 - [Docker](https://www.docker.com/): Se utilizará para crear *containers*, en los cuáles se ejecutará
 la aplicación.
 - Para el despliegue en la nube, se usarán [Heroku](https://www.heroku.com/) e, idealmente,
