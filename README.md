@@ -40,18 +40,18 @@ y práctico tener un sistema de gestión al que puedan acceder en cualquier mome
 ## :bulb: ¿Cuál es la idea general del funcionamiento?
 
 La idea principal es, como se ha comentado anteriormente, facilitar la gestión de
-vocabulario. Para ello, se pretende que el usuario sea capaz de almacenar en un
-**sistema de almacenamiento** las palabras o expresiones que quiera aprender, asignándoles
+vocabulario. Para ello, se pretende que se pueda almacenar en un
+**sistema de almacenamiento** las palabras o expresiones que se quieran aprender, asignándoles
 una categoría (sustantivo, adjetivo, verbo, etc.), y permitiendo insertar junto a ellas
 una serie de definiciones o traducciones, las cuáles serán *descripciones de la palabra*.
 
-Posteriormente, el usuario podrá modificar estas descripciones, añadiendo o quitando
-definiciones o traducciones, y se le permitirá consultar palabras concretas para obtener
+Posteriormente, se podrán modificar estas descripciones, añadiendo o quitando
+definiciones o traducciones, y se permitirá consultar palabras concretas para obtener
 las descripciones, o bien todas las palabras de una categoría, si quiere dedicar un tiempo
 a aprender, por ejemplo, los verbos que tiene guardados.
 
-El usuario también podrá eliminar las palabras cuando crea que ya no necesita que estén en
-su lista de palabras por aprender, debido a que por ejemplo ya las ha aprendido.
+También se podrán eliminar las palabras cuando se crea conveniento, como por ejemplo sería
+el caso de que ya han sido aprendidas.
 
 ## :desktop_computer: Implementación
 
@@ -123,4 +123,5 @@ rm -rf out-test
 
 Para tener más información sobre la clase que se está testeando, se recomienda consultar la
 [siguiente](https://vol0kin.github.io/VocabulaRBy/VocManager.html) página de documentación. Para
-entender qué es lo que se está testeando, se recomienda leer [esta]() página.
+entender qué es lo que se está testeando, se recomienda leer
+[esta](https://github.com/Vol0kin/VocabulaRBy/blob/master/docs/extra-doc/info-tests.md) página.
