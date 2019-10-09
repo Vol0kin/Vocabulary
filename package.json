@@ -21,6 +21,7 @@
     "jsdoc": "^3.6.3"
   },
   "dependencies": {
+    "doctoc": "^1.4.0",
     "express": "^4.17.1",
     "mongodb": "^3.3.2",
     "winston": "^3.2.1"
