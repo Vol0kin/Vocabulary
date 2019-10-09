@@ -14,7 +14,7 @@
 - [¿Cuál es la idea general del funcionamiento?](#bulb-%C2%BFcu%C3%A1l-es-la-idea-general-del-funcionamiento)
 - [Implementación](#desktop_computer-implementaci%C3%B3n)
 - [Tecnologías a utilizar](#wrench-tecnolog%C3%ADas-a-utilizar)
-- [Instalación y ejecución de los tests](#keyboard-instalaci%C3%B3n-y-ejecuci%C3%B3n-de-los-tests)
+- [Instalación del proyecto](#keyboard-instalaci%C3%B3n-del-proyecto)
 - [Ejecución de los tests](#heavy_check_mark-ejecuci%C3%B3n-de-los-tests)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -91,7 +91,7 @@ la aplicación.
 - Para el despliegue en la nube, se usarán [Heroku](https://www.heroku.com/) e, idealmente,
 [Azure](https://azure.microsoft.com/es-es/).
 
-## :keyboard: Instalación y ejecución de los tests
+## :keyboard: Instalación del proyecto
 
 Para poder instalar el proyecto, se necesita tener instalado `node` y `npm` en el equipo. Teniendo esto,
 lo primero que hay que hacer es clonar el repositorio con `git clone`.
