@@ -119,3 +119,7 @@ Si queremos eliminar las salidas generadas por los tests, simplemente basta con 
 ```bash
 rm -rf out-test
 ```
+
+Para tener más información sobre la clase que se está testeando, se recomienda consultar la
+[siguiente](https://vol0kin.github.io/VocabulaRBy/VocManager.html) página de documentación. Para
+entender qué es lo que se está testeando, se recomienda leer [esta]() página.
