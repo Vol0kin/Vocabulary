@@ -85,7 +85,8 @@ sistemas para gestionar *logs* más adelante, y se indicará aquí.
 - [JSDoc](https://www.npmjs.com/package/jsdoc): Para generar la documentación se utiliza esta API,
 la cuál es fácil de instalar y utilizar, además de que es open source.
 - Para la integración contínua se utilizarán dos sistemas: [Travis CI](https://travis-ci.org/) y
-[Circle CI](https://circleci.com/). Aquí se pueden ver los motivos por los que se han elegido.
+[Circle CI](https://circleci.com/). [Aquí](docs/extra-docs/razones-travis-circle.md) se pueden
+ver los motivos por los que se han elegido.
 - [Docker](https://www.docker.com/): Se utilizará para crear *containers*, en los cuáles se ejecutará
 la aplicación.
 - Para el despliegue en la nube, se usarán [Heroku](https://www.heroku.com/) e, idealmente,
