@@ -8,15 +8,14 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [VocabulaRBy](#vocabularby)
-  - [¿Qué es VocabulaRBy?](#thinking-%C2%BFqu%C3%A9-es-vocabularby)
-  - [¿Por qué VocabulaRBy?](#sunglasses-%C2%BFpor-qu%C3%A9-vocabularby)
-  - [¿De dónde surge la idea?](#mag-%C2%BFde-d%C3%B3nde-surge-la-idea)
-  - [¿Cuál es la idea general del funcionamiento?](#bulb-%C2%BFcu%C3%A1l-es-la-idea-general-del-funcionamiento)
-  - [Implementación](#desktop_computer-implementaci%C3%B3n)
-  - [Tecnologías a utilizar](#wrench-tecnolog%C3%ADas-a-utilizar)
-  - [Instalación y ejecución de los tests](#keyboard-instalaci%C3%B3n-y-ejecuci%C3%B3n-de-los-tests)
-  - [Ejecución de los tests](#ejecuci%C3%B3n-de-los-tests)
+- [¿Qué es VocabulaRBy?](#thinking-%C2%BFqu%C3%A9-es-vocabularby)
+- [¿Por qué VocabulaRBy?](#sunglasses-%C2%BFpor-qu%C3%A9-vocabularby)
+- [¿De dónde surge la idea?](#mag-%C2%BFde-d%C3%B3nde-surge-la-idea)
+- [¿Cuál es la idea general del funcionamiento?](#bulb-%C2%BFcu%C3%A1l-es-la-idea-general-del-funcionamiento)
+- [Implementación](#desktop_computer-implementaci%C3%B3n)
+- [Tecnologías a utilizar](#wrench-tecnolog%C3%ADas-a-utilizar)
+- [Instalación y ejecución de los tests](#keyboard-instalaci%C3%B3n-y-ejecuci%C3%B3n-de-los-tests)
+- [Ejecución de los tests](#heavy_check_mark-ejecuci%C3%B3n-de-los-tests)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
