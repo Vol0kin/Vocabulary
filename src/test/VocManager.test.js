@@ -3,6 +3,12 @@ const Vocabulary = require("../Vocabulary")
 const fs = require("fs");
 
 const manager = new VocManager()
+const outputDir = "out-test/"
+
+// Create directory that will contain the output file
+if (!fs.existsSync(outputDir)){
+	fs.mkdirSync(outputDir);
+}
 
 test("Guarda nueva palabra en la 'BD' y esperar que sea la misma", () => {
 	// Store a word
