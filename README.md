@@ -108,14 +108,13 @@ npm install .
 Para ejecutar los tests, situándonos en el directorio clonado, basta con hacer lo siguiente:
 
 ```bash
-mkdir out-test
 npm test
 ```
 
-De esta forma, creamos un directorio donde se van a guardar las salidas de los tests (debido a que, de momento,
-escriben en ficheros de texto) y posteriormente se ejecutan los tests.
-
-Si queremos eliminar las salidas generadas por los tests, simplemente basta con ejecutar:
+De esta forma, se ejecutan los tests definidos en el directorio `src/test`. Estos tests crean un directorio
+donde escriben la salida, que es `out-test`. Este directorio está a nivel raíz, y contiene un archivo que se
+va sobreescribiendo con cada test. Si se quiere eliminar este directorio, solo se tiene que ejecutar
+la siguiente orden:
 
 ```bash
 rm -rf out-test
