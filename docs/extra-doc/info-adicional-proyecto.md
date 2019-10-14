@@ -1,5 +1,16 @@
 # Información adicional del proyecto
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [¿De dónde surge la idea?](#mag-%C2%BFde-d%C3%B3nde-surge-la-idea)
+- [¿Cuál es la idea general del funcionamiento?](#bulb-%C2%BFcu%C3%A1l-es-la-idea-general-del-funcionamiento)
+- [Implementación](#desktop_computer-implementaci%C3%B3n)
+- [Tecnologías a utilizar](#wrench-tecnolog%C3%ADas-a-utilizar)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ## :mag: ¿De dónde surge la idea?
 
 La idea surge de que muchas personas necesitan un sistema rápido y sencillo de utilizar
