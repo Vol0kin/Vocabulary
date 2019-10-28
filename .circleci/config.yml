@@ -10,5 +10,8 @@ jobs:
           name: Install dependencies
           command: npm install .
       - run:
-          name: Test
-          command: npm test
+          name: Install GULP
+          command: npm install -g gulp-cli
+      - run:
+          name: Test class
+          command: gulp test-class

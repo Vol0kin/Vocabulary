@@ -1,5 +1,5 @@
-const VocManager = require("../VocManager");
-const Vocabulary = require("../Vocabulary")
+const VocManager = require("../src/VocManager");
+const Vocabulary = require("../src/Vocabulary")
 const fs = require("fs");
 
 const manager = new VocManager()
