@@ -1,3 +1,4 @@
+/* Class representing a value error of some field */
 class ValueError extends Error {
 	/**
 	 * Create a new ValueError exception
