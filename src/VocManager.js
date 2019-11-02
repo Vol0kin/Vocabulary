@@ -1,11 +1,14 @@
 const Vocabulary = require("./Vocabulary");
+const ValueError = require("./ValueError");
 const fs = require("fs");
 
 class VocManager {
 	/**
 	 * Create a new Vocabulary Manager
 	 */
-	constructor() {}
+	constructor() {
+		this.vocabularyList = [];
+	}
 
 	/**
 	 * Get the allowed type of vocabulary
@@ -23,12 +26,14 @@ class VocManager {
 	 */
 	storeWord(word, type, desc) {
 		// Check if the type is found in the allowed types
-		if (VocManager.ALLOWED_TYPES.indexOf(type) > -1) {
+		if (VocManager.ALLOWED_TYPES.includes(type)) {
 			// Create a new Vocabulary object
 			var vocabulary = new Vocabulary(word, type, desc);
-			
-			// Store it as a JSON object
-			fs.writeFileSync("out-test/out-example.json", JSON.stringify(vocabulary));
+
+			// Store the element into the list
+			this.vocabularyList.push(vocabulary);
+		} else {
+			throw new ValueError('Unvalid value of type. The allowed ones are the following: ' + VocManager.ALLOWED_TYPES);
 		}
 	}
 
@@ -39,20 +44,16 @@ class VocManager {
 	 * @return {Vocabulary} A Vocabulary object
 	 */
 	getVocabularyByType(word, type) {
-		// THIS PART WILL CHANGE WHEN A DATABASE IS USED
-		//*************************************************************************
 		// Check that the type is found in the allowed types
-		if (VocManager.ALLOWED_TYPES.indexOf(type) > -1) {
-			// Read the words
-			var readObj = JSON.parse(fs.readFileSync("out-test/out-example.json"));
+		if (VocManager.ALLOWED_TYPES.includes(type))  {
 
 			// Find the element by the word and type given
-			var vocabulary = readObj.find(element =>
+			var vocabulary = this.vocabularyList.find(element =>
 				element.word == word && element.type == type
 			);
+		} else {
+			throw new ValueError('Unvalid value of type. The allowed ones are the following: ' + VocManager.ALLOWED_TYPES);
 		}
-		
-		//*************************************************************************
 
 		return vocabulary;
 	}
@@ -63,17 +64,14 @@ class VocManager {
 	 * @return {Array} An Array of Vocabulary object
 	 */
 	getVocabularySameType(type) {
-		// THIS PART WILL CHANGE WHEN A DATABASE IS USED
-		//*************************************************************************
-		if (VocManager.ALLOWED_TYPES.indexOf(type) > -1) {
-			var readObj = JSON.parse(fs.readFileSync("out-test/out-example.json"));
-
+		if (VocManager.ALLOWED_TYPES.includes(type))  {
 			// Find the elements which have the same type
-			var vocabulary = readObj.filter(element =>
+			var vocabulary = this.vocabularyList.filter(element =>
 				element.type == type
 			);
+		} else {
+			throw new ValueError('Unvalid value of type. The allowed ones are the following: ' + VocManager.ALLOWED_TYPES);
 		}
-		//*************************************************************************
 
 		return vocabulary;
 	}
@@ -88,6 +86,8 @@ class VocManager {
 	modifyDescription(word, type, newDesc) {
 		if (VocManager.ALLOWED_TYPES.indexOf(type) > -1) {
 			// TODO
+		}  else {
+			throw new ValueError('Unvalid value of type. The allowed ones are the following: ' + VocManager.ALLOWED_TYPES);
 		}
 	}
 
@@ -99,6 +99,8 @@ class VocManager {
 	deleteVocabulary(word, type){
 		if (VocManager.ALLOWED_TYPES.indexOf(type) > -1) {
 			// TODO
+		}  else {
+			throw new ValueError('Unvalid value of type. The allowed ones are the following: ' + VocManager.ALLOWED_TYPES);
 		}
 	}
 }
