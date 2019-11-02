@@ -102,8 +102,12 @@ class VocManager {
 	 */
 	deleteVocabulary(word, type){
 		if (VocManager.ALLOWED_TYPES.indexOf(type) > -1) {
-			// TODO
-		}  else {
+			// Find the index of the piece of vocabulary which has the same word
+			// and type as the ones given
+			this.vocabularyList = this.vocabularyList.filter(voc =>
+				voc.type != type && voc.word != word
+			);
+		} else {
 			throw new ValueError('Unvalid value of type. The allowed ones are the following: ' + VocManager.ALLOWED_TYPES);
 		}
 	}
