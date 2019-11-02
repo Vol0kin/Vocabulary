@@ -5,23 +5,23 @@ const ValueError = require("../src/exceptions/ValueError");
 
 const manager = new VocManager();
 
-describe('Testing class API', () => {
+describe("Testing class API", () => {
 
-	describe('Testing VocManager method addVocabulary()', () => {
+	describe("Testing VocManager's method addVocabulary()", () => {
 
-		test("Try to add a piece of vocabulary with a non-valid type and except", () => {
+		test("Try to add a piece of vocabulary passing a non-valid type and except", () => {
 			expect(() => {
 				manager.addVocabulary("Prueba", "nombre", ["Intento de algo"])
 			}).toThrow(ValueError);
 		});
 	
-		test("Try to add a piece of vocabulary with a description which is not an Array and except", () => {
+		test("Try to add a piece of vocabulary passing a description which is not an Array and except", () => {
 			expect(() => {
 				manager.addVocabulary("Prueba", "noun", "Intento de algo")
 			}).toThrow(TypeError);
 		});
 	
-		test("Try to add a piece of vocabulary with a description which is an Array but each element isn't a string and except", () => {
+		test("Try to add a piece of vocabulary passing a description which is an Array but not all elements are string and except", () => {
 			expect(() => {
 				manager.addVocabulary("Prueba", "noun", ["Intento de algo", 1])
 			}).toThrow(TypeError);
@@ -34,15 +34,15 @@ describe('Testing class API', () => {
 		});
 	});
 	
-	describe("Testing VocManager method getVocabularyWordType()", () => {
+	describe("Testing VocManager's method getVocabularyWordType()", () => {
 
-		// Insert some more words into the manager
+		// Insert some more words
 		beforeAll(() => {
 			manager.addVocabulary("comer", "verb", ["Ingerir alimentos"]);
 			manager.addVocabulary("beber", "verb", ["Ingerir líquidos"]);
 		});
 		
-		test("Try to recover a piece of vocabulary with a non-valid type and except", () => {
+		test("Try to recover a piece of vocabulary passing a non-valid type and except", () => {
 			expect(() => {
 				manager.getVocabularyWordType("Prueba", "nombre")
 			}).toThrow(ValueError);
@@ -78,9 +78,9 @@ describe('Testing class API', () => {
 		});
 	});
 
-	describe("Testing VocManager method getVocabularyType()", () => {
+	describe("Testing VocManager's method getVocabularyType()", () => {
 
-		test("Try to recover a bunch of vocabulary with a non-valid type and except", () => {
+		test("Try to recover a bunch of vocabulary passing a non-valid type and except", () => {
 			expect(() => {
 				manager.getVocabularyType("nombre");
 			}).toThrow(ValueError);
@@ -111,7 +111,52 @@ describe('Testing class API', () => {
 			const vocList = manager.getVocabularyType("verb");
 
 			expect(vocList).toBeInstanceOf(Array);
-			expect(vocList).toHaveLength(2);
+			expect(vocList.length).toBeGreaterThan(1);
 		})
+	});
+
+	describe("Testing VocManager's method modifyDescription()", () => {
+
+		test("Try to modify the description of a piece of vocabulary passing a non-existent type and except", () => {
+			expect(() => {
+				manager.modifyDescription("Prueba", "nombre", ["Esto es una prueba"]);
+			}).toThrow(ValueError);
+		});
+
+		test("Try to modify the description of a piece of vocabulary passing a non-Array object as description and except", () => {
+			expect(() => {
+				manager.modifyDescription("Prueba", "noun", "Esto es una prueba");
+			}).toThrow(TypeError);
+		});
+
+		test("Try to modify the description of a piece of vocabulary passing a description which is an Array but not all elements are string and except", () => {
+			expect(() => {
+				manager.modifyDescription("Prueba", "noun", ["Esto es una prueba", 1]);
+			}).toThrow(TypeError);
+		});
+
+		test("Try to modify the description of a piece of vocabulary whose word isn't inserted and except", () => {
+			expect(() => {
+				manager.modifyDescription("Intento", "noun", ["Esto es una prueba"]);
+			}).toThrow(NotFoundError);
+		});
+
+		test("Try to modify the description of a piece of vocabulary whose description isn't the same as the one which it was inserted with and except", () => {
+			expect(() => {
+				manager.modifyDescription("Prueba", "verb", ["Esto es una prueba"]);
+			}).toThrow(NotFoundError);
+		});
+
+		test("Modify successfully the description of a piece of vocabulary and check that it has changed", () => {
+			const oldDesc = manager.getVocabularyWordType("Prueba", "noun").description;
+
+			expect(() => {
+				manager.modifyDescription("Prueba", "noun", ["Esto es una prueba"]);
+			}).not.toThrow();
+
+			const newDesc = manager.getVocabularyWordType("Prueba", "noun").description;
+
+			expect(oldDesc[0]).not.toEqual(newDesc[0]);
+		});
 	});
 });
