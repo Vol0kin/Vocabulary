@@ -33,10 +33,43 @@ describe('Testing class API', () => {
 	});
 	
 	describe('Testing VocManager method getVocabularyWordType()', () => {
+		// Insert some more words into the manager
 		beforeAll(() => {
-			manager.addVocabulary("Prueba", "nombre", ["Intento de algo"]);
 			manager.addVocabulary("comer", "verb", ["Ingerir alimentos"]);
 			manager.addVocabulary("beber", "verb", ["Ingerir líquidos"]);
+		});
+		
+		test("Try to recover a piece of vocabulary with a non-valid type and except", () => {
+			expect(() => {
+				manager.getVocabularyWordType("Prueba", "nombre")
+			}).toThrow(ValueError);
+		});
+
+		test("Try to recover a piece of vocabulary searching by a word not inserted and except", () => {
+			expect(() => {
+				manager.getVocabularyWordType("Intento", "noun")
+			}).toThrow(NotFoundError);
+		});
+
+		test("Try to recover a piece of vocabulary searching by a different type than the one inserted with and except", () => {
+			expect(() => {
+				manager.getVocabularyWordType("comer", "noun");
+			}).toThrow(NotFoundError);
+		});
+
+		test("Try to recover a non-existent piece of vocabulary", () => {
+			expect(() => {
+				manager.getVocabularyWordType("dormir", "verb")
+			}).toThrow(NotFoundError);
+		})
+
+		test("Recover successfully a piece of vocabulary by the word and its type", () => {
+			expect(() => {
+				manager.getVocabularyWordType("comer", "verb");
+			}).not.toThrow();
+			expect(
+				manager.getVocabularyWordType("comer", "verb")
+			).toEqual(new Vocabulary("comer", "verb", ["Ingerir alimentos"]));
 		});
 	});
 });
