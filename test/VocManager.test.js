@@ -1,68 +1,42 @@
 const VocManager = require("../src/VocManager");
-const Vocabulary = require("../src/Vocabulary")
-const fs = require("fs");
+const Vocabulary = require("../src/Vocabulary");
+const NotFoundError = require("../src/exceptions/NotFoundError");
+const ValueError = require("../src/exceptions/ValueError");
 
-const manager = new VocManager()
-const outputDir = "out-test/"
+const manager = new VocManager();
 
-// Create directory that will contain the output file
-if (!fs.existsSync(outputDir)){
-	fs.mkdirSync(outputDir);
-}
-
-test("Guarda nueva palabra en la 'BD' y esperar que sea la misma", () => {
-	// Store a word
-	manager.storeWord("Prueba", "noun", ["Intento de algo"]);
-
-	var vocabulary = JSON.parse(fs.readFileSync("out-test/out-example.json"));
-	expect(vocabulary).toEqual({word: "Prueba", type: "noun", description: ["Intento de algo"]});
-});
-
-test("Fallar al intentar guardar una palabra que no tiene un tipo correcto", () => {
-	// Clear file
-	fs.writeFileSync("out-test/out-example.json", "");
-
-	// Try to store a word with a wrong type
-	manager.storeWord("Prueba", "nombre", ["Intento de algo"]);
-	var vocabulary = fs.readFile("out-test/out-example.json");
-	expect(vocabulary).toBe(undefined);
-
-});
-
-test("Recuperar una palabra especifica de la 'BD'", () => {
-	// Write a group of words in the 'database'
-	fs.writeFileSync("out-test/out-example.json", JSON.stringify([
-		{word: "Prueba", type: "noun", description: ["Intento de algo"]},
-		{word: "Test", type: "noun", description: ["Prueba de un componente"]}
-	]));
-
-	var word = manager.getVocabularyByType("Test", "noun");
-	expect(word).toEqual(new Vocabulary("Test", "noun", ["Prueba de un componente"]));
-});
-
-test("Recuperar un grupo de palabras de la 'BD' que tengan el mismo tipo", () => {
-	// Write a bunch of words to the 'database'
-	fs.writeFileSync("out-test/out-example.json", JSON.stringify([
-		{word: "Prueba", type: "noun", description: ["Intento de algo"]},
-		{word: "Test", type: "noun", description: ["Prueba de un componente"]},
-		{word: "Comer", type: "verb", description: ["Ingerir alimentos para obtener nutrientes"]}
-	]));
-
-	var vocabulary = manager.getVocabularySameType("noun");
-	expect(vocabulary.sort()).toEqual([
-		{word: "Prueba", type: "noun", description: ["Intento de algo"]},
-		{word: "Test", type: "noun", description: ["Prueba de un componente"]}
-	].sort());
-});
-
-test("Recuperar una palabra de la 'BD' cuando se busca que todas tengan el mismo tipo", () => {
-	// Write a bunch of words to the 'database'
-	fs.writeFileSync("out-test/out-example.json", JSON.stringify([
-		{word: "Prueba", type: "noun", description: ["Intento de algo"]},
-		{word: "Test", type: "noun", description: ["Prueba de un componente"]},
-		{word: "Comer", type: "verb", description: ["Ingerir alimentos para obtener nutrientes"]}
-	]));
-
-	var vocabulary = manager.getVocabularySameType("verb");
-	expect(vocabulary).toEqual([{word: "Comer", type: "verb", description: ["Ingerir alimentos para obtener nutrientes"]}]);
+describe('Testing class API', () => {
+	describe('Testing VocManager method addVocabulary()', () => {
+		test("Try to add a piece of vocabulary with a non-valid type and except", () => {
+			expect(() => {
+				manager.addVocabulary("Prueba", "nombre", ["Intento de algo"])
+			}).toThrow(ValueError);
+		});
+	
+		test("Try to add a piece of vocabulary with a description which is not an Array and except", () => {
+			expect(() => {
+				manager.addVocabulary("Prueba", "noun", "Intento de algo")
+			}).toThrow(TypeError);
+		});
+	
+		test("Try to add a piece of vocabulary with a description which is an Array but each element isn't a string and except", () => {
+			expect(() => {
+				manager.addVocabulary("Prueba", "noun", ["Intento de algo", 1])
+			}).toThrow(TypeError);
+		});
+	
+		test("Add a new word to the vocabulary successfully", () => {
+			expect(() => {
+				manager.addVocabulary("Prueba", "noun", ["Intento de algo"])
+			}).not.toThrow();
+		});
+	});
+	
+	describe('Testing VocManager method getVocabularyWordType()', () => {
+		beforeAll(() => {
+			manager.addVocabulary("Prueba", "nombre", ["Intento de algo"]);
+			manager.addVocabulary("comer", "verb", ["Ingerir alimentos"]);
+			manager.addVocabulary("beber", "verb", ["Ingerir líquidos"]);
+		});
+	});
 });
