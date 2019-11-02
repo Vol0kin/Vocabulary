@@ -1,6 +1,5 @@
 const Vocabulary = require("./Vocabulary");
-const ValueError = require("./exceptions/ValueError");
-const fs = require("fs");
+const Checker = require("./Checker");
 
 class VocManager {
 	/**
@@ -8,6 +7,7 @@ class VocManager {
 	 */
 	constructor() {
 		this.vocabularyList = [];
+		this.checker = new Checker();
 	}
 
 	/**
@@ -20,38 +20,42 @@ class VocManager {
 
 	/**
 	 * Store a new piece of vocabulary
-	 * @param {String} word - The word corresponding to the piece of vocabulary
-	 * @param {String} type - The type of the piece of vocabulary
+	 * @param {string} word - The word corresponding to the piece of vocabulary
+	 * @param {string} type - The type of the piece of vocabulary
 	 * @param {Array} desc - An array that describes the vocabulary
 	 */
 	addVocabulary(word, type, desc) {
-		// Check if the type is found in the allowed types
-		if (VocManager.ALLOWED_TYPES.includes(type)) {
-			// Create a new Vocabulary object
-			var vocabulary = new Vocabulary(word, type, desc);
+		try {
+			// Check if the type is found in the allowed types
+			this.checker.checkTypeInAllowedTypes(VocManager.ALLOWED_TYPES, type);
 
-			// Store the element into the list
+			// Check if the description is correct
+			this.checker.checkDescription(desc);
+
+			// Add the new vocabulary
+			var vocabulary = new Vocabulary(word, type, desc);
 			this.vocabularyList.push(vocabulary);
-		} else {
-			throw new ValueError('Unvalid value of type. The allowed ones are the following: ' + VocManager.ALLOWED_TYPES);
+		} catch (e) {
+			throw e;
 		}
 	}
 
 	/**
 	 * Get a piece of vocabulary identified by the word and its type
-	 * @param {String} word - The word corresponding to the piece of vocabulary
-	 * @param {String} type - The type of the piece of vocabulary
+	 * @param {string} word - The word corresponding to the piece of vocabulary
+	 * @param {string} type - The type of the piece of vocabulary
 	 * @return {Vocabulary} A Vocabulary object
 	 */
 	getVocabularyWordType(word, type) {
-		// Check that the type is found in the allowed types
-		if (VocManager.ALLOWED_TYPES.includes(type)) {
-			// Find the element by the word and type given
-			var vocabulary = this.vocabularyList.find(element =>
-				element.word == word && element.type == type
-			);
-		} else {
-			throw new ValueError('Unvalid value of type. The allowed ones are the following: ' + VocManager.ALLOWED_TYPES);
+		try {
+			// Check if the type is found in the allowed types
+			this.checker.checkTypeInAllowedTypes(VocManager.ALLOWED_TYPES, type);
+
+			// Check if the vocabulary exists and get it if it does
+			var vocabulary = this.checker.checkFindElement(this.vocabularyList,
+				element => element.word == word && element.type == type);
+		} catch (e) {
+			throw e;
 		}
 
 		return vocabulary;
@@ -59,17 +63,19 @@ class VocManager {
 
 	/**
 	 * Get a bunch of vocabulary with a specific type
-	 * @param {String} type - The type of the vocabulary to search
+	 * @param {string} type - The type of the vocabulary to search
 	 * @return {Array} An Array of Vocabulary object
 	 */
 	getVocabularyType(type) {
-		if (VocManager.ALLOWED_TYPES.includes(type)) {
-			// Find the elements which have the same type
-			var vocabulary = this.vocabularyList.filter(element =>
-				element.type == type
-			);
-		} else {
-			throw new ValueError('Unvalid value of type. The allowed ones are the following: ' + VocManager.ALLOWED_TYPES);
+		try {
+			// Check if the type is found in the allowed types
+			this.checker.checkTypeInAllowedTypes(VocManager.ALLOWED_TYPES, type);
+
+			// Check if the vocabulary exists and get it if it does
+			var vocabulary = this.checker.checkFilterElement(this.vocabularyList,
+				element => element.type == type);
+		} catch (e) {
+			throw e;
 		}
 
 		return vocabulary;
@@ -78,37 +84,51 @@ class VocManager {
 	/**
 	 * Modify the description of a piece of vocabulary identified by the word
 	 * and its type
-	 * @param {String} word - The word corresponding to the piece of vocabulary
-	 * @param {String} type - The type of the piece of vocabulary
+	 * @param {string} word - The word corresponding to the piece of vocabulary
+	 * @param {string} type - The type of the piece of vocabulary
 	 * @param {Array} newDesc - The new description which will be set to the piece of vocabulary
 	 */
 	modifyDescription(word, type, newDesc) {
-		if (VocManager.ALLOWED_TYPES.includes(type)) {
-			// Find the index of the piece of vocabulary which has the same word
-			// and type as the ones given
-			var idx = this.vocabularyList.findIndex(voc => voc.word == word && voc.type == type);
+		try {
+			// Check if the type is found in the allowed types
+			this.checker.checkTypeInAllowedTypes(VocManager.ALLOWED_TYPES, type);
 
-			// Mofify the description of the piece of vocabulary
-			this.vocabularyList[idx].description = newDesc;
-		} else {
-			throw new ValueError('Unvalid value of type. The allowed ones are the following: ' + VocManager.ALLOWED_TYPES);
+			// Check description
+			this.checker.checkDescription(newDesc);
+
+			// Find the index of the piece of vocabulary which has the same word
+			// and type as the ones given, if it exists
+			var index = this.checker.checkFindIndexElement(this.vocabularyList,
+				voc => voc.word == word && voc.type == type);
+			
+			// Set new description
+			this.vocabularyList[index].description = newDesc;
+		} catch (e) {
+			throw e;
 		}
 	}
 
 	/**
 	 * Remove a piece of vocabulary identified by the word and its type
-	 * @param {String} word - Word associated to the piece of vocabulary to be removed
-	 * @param {String} type - Type of the vocabulary to be removed
+	 * @param {string} word - Word associated to the piece of vocabulary to be removed
+	 * @param {string} type - Type of the vocabulary to be removed
 	 */
 	deleteVocabulary(word, type){
-		if (VocManager.ALLOWED_TYPES.indexOf(type) > -1) {
+		try {
+			// Check if the type is found in the allowed types
+			this.checker.checkTypeInAllowedTypes(VocManager.ALLOWED_TYPES, type);
+
 			// Find the index of the piece of vocabulary which has the same word
-			// and type as the ones given
+			// and type as the ones given, if it exists
+			var index = this.checker.checkFindIndexElement(this.vocabularyList,
+				voc => voc.word == word && voc.type == type);
+
+			// Remove the element from the vocabulary list
 			this.vocabularyList = this.vocabularyList.filter(voc =>
 				voc.type != type && voc.word != word
 			);
-		} else {
-			throw new ValueError('Unvalid value of type. The allowed ones are the following: ' + VocManager.ALLOWED_TYPES);
+		} catch (e) {
+			throw e;
 		}
 	}
 }
