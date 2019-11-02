@@ -1,5 +1,3 @@
-const fs = require('fs');
-
 /* Class representing a piece of vocabulary */
 class Vocabulary {
 	/**

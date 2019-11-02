@@ -1,5 +1,5 @@
 const Vocabulary = require("./Vocabulary");
-const ValueError = require("./ValueError");
+const ValueError = require("./exceptions/ValueError");
 const fs = require("fs");
 
 class VocManager {
