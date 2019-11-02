@@ -46,7 +46,6 @@ class VocManager {
 	getVocabularyByType(word, type) {
 		// Check that the type is found in the allowed types
 		if (VocManager.ALLOWED_TYPES.includes(type))  {
-
 			// Find the element by the word and type given
 			var vocabulary = this.vocabularyList.find(element =>
 				element.word == word && element.type == type
@@ -84,9 +83,14 @@ class VocManager {
 	 * @param {Array} newDesc - The new description which will be set to the piece of vocabulary
 	 */
 	modifyDescription(word, type, newDesc) {
-		if (VocManager.ALLOWED_TYPES.indexOf(type) > -1) {
-			// TODO
-		}  else {
+		if (VocManager.ALLOWED_TYPES.includes(type)) {
+			// Find the index of the piece of vocabulary which has the same word
+			// and type as the ones given
+			var idx = this.vocabularyList.findIndex(voc => voc.word == word && voc.type == type);
+
+			// Mofify the description of the piece of vocabulary
+			this.vocabularyList[idx].description = newDesc;
+		} else {
 			throw new ValueError('Unvalid value of type. The allowed ones are the following: ' + VocManager.ALLOWED_TYPES);
 		}
 	}
