@@ -24,7 +24,7 @@ class VocManager {
 	 * @param {String} type - The type of the piece of vocabulary
 	 * @param {Array} desc - An array that describes the vocabulary
 	 */
-	storeWord(word, type, desc) {
+	addVocabulary(word, type, desc) {
 		// Check if the type is found in the allowed types
 		if (VocManager.ALLOWED_TYPES.includes(type)) {
 			// Create a new Vocabulary object
@@ -43,9 +43,9 @@ class VocManager {
 	 * @param {String} type - The type of the piece of vocabulary
 	 * @return {Vocabulary} A Vocabulary object
 	 */
-	getVocabularyByType(word, type) {
+	getVocabularyWordType(word, type) {
 		// Check that the type is found in the allowed types
-		if (VocManager.ALLOWED_TYPES.includes(type))  {
+		if (VocManager.ALLOWED_TYPES.includes(type)) {
 			// Find the element by the word and type given
 			var vocabulary = this.vocabularyList.find(element =>
 				element.word == word && element.type == type
@@ -62,8 +62,8 @@ class VocManager {
 	 * @param {String} type - The type of the vocabulary to search
 	 * @return {Array} An Array of Vocabulary object
 	 */
-	getVocabularySameType(type) {
-		if (VocManager.ALLOWED_TYPES.includes(type))  {
+	getVocabularyType(type) {
+		if (VocManager.ALLOWED_TYPES.includes(type)) {
 			// Find the elements which have the same type
 			var vocabulary = this.vocabularyList.filter(element =>
 				element.type == type
