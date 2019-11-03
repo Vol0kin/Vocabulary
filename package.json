@@ -24,6 +24,7 @@
     "jsdoc": "^3.6.3"
   },
   "dependencies": {
+    "body-parser": "^1.19.0",
     "doctoc": "^1.4.0",
     "express": "^4.17.1",
     "gulp-jest": "^4.0.3",
