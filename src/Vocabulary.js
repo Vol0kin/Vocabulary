@@ -2,9 +2,9 @@
 class Vocabulary {
 	/**
 	 * Create a piece of vocabulary
-	 * @param {String} word - The word to store
-	 * @param {String} type - The type of the word (noun, verb, etc.)
-	 * @param {Array} description - A description of the word (definitions, translations, etc.) 
+	 * @param {string} word - The word to store
+	 * @param {string} type - The type of the word (noun, verb, etc.)
+	 * @param {string[]} description - A description of the word (definitions, translations, etc.) 
 	 */
 	constructor(word, type, description) {
 		this.word = word;
