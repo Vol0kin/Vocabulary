@@ -8,6 +8,7 @@ var app = express();
 const manager = new VocManager();
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }))
 
 app.put('/:type/:word', (req, res) => {
 	var word = decodeURI(req.params.word);
@@ -27,8 +28,7 @@ app.get('/:type/:word', (req, res) => {
 		var vocabulary = manager.getVocabularyWordType(word, req.params.type);
 		res.status(200).json(vocabulary);
 	} catch (exception) {
-		console.log("excepcion");
-		res.status(404).send({error: "Resource not found!"});
+		res.status(404).send({"error": "Resource not found!"});
 	}
 });
 
@@ -37,7 +37,18 @@ app.get('/:type', (req, res) => {
 		var vocabulary = manager.getVocabularyType(req.params.type);
 		res.status(200).json(vocabulary);
 	} catch (exception) {
-		res.status(404).send({error: "Resource not found!"});
+		res.status(404).send({"error": "Resource not found!"});
+	}
+});
+
+app.delete('/:type/:word', (req, res) => {
+	var word = decodeURI(req.params.word);
+
+	try {
+		manager.deleteVocabulary(word, req.params.type);
+		res.status(204).send({"status": "OK"});
+	} catch (exception) {
+		res.status(404).send({"error": "Resource not found!"});
 	}
 });
 
