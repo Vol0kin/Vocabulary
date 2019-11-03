@@ -17,7 +17,7 @@ app.put('/:type/:word', (req, res) => {
 		manager.addVocabulary(word, req.params.type, req.body.desc);
 		res.status(201).json(manager.getVocabularyWordType(word, req.params.type));
 	} catch (exception) {
-		res.status(400);
+		res.status(400).send({"error": "Wrong input information!"});
 	}
 });
 
