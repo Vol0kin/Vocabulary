@@ -14,25 +14,31 @@ app.put('/:type/:word', (req, res) => {
 
 	try {
 		manager.addVocabulary(word, req.params.type, req.body.desc);
+		res.status(201).json(manager.getVocabularyWordType(word, req.params.type));
 	} catch (exception) {
 		res.status(400);
 	}
-
-	res.status(201).json(manager.getVocabularyWordType(word, req.params.type));
-});
-
-app.get('/', (req, res) => {
-	res.send('Hello world!').status(200);
 });
 
 app.get('/:type/:word', (req, res) => {
-	var wordParsed = decodeURI(req.params.word);
-	var vocablary = manager.getVocabularyByType(wordParsed, req.params.type);
-	res.send(vocablary).status(200);
+	var word = decodeURI(req.params.word);
+
+	try {
+		var vocabulary = manager.getVocabularyWordType(word, req.params.type);
+		res.status(200).json(vocabulary);
+	} catch (exception) {
+		console.log("excepcion");
+		res.status(404).send({error: "Resource not found!"});
+	}
 });
 
-app.get(':/type', (req, res) => {
-
+app.get('/:type', (req, res) => {
+	try {
+		var vocabulary = manager.getVocabularyType(req.params.type);
+		res.status(200).json(vocabulary);
+	} catch (exception) {
+		res.status(404).send({error: "Resource not found!"});
+	}
 });
 
 
