@@ -42,7 +42,7 @@ class Checker {
 	 * @param {Array} vocabularyList Array that contains the current vocabulary
 	 * @param {function} callback Function used to filter the elements
 	 * @throws {NotFoundError} The element searched with callback must be in vocabularyList
-	 * @returns {Array} Array containing the result of filtering
+	 * @return {Array} Array containing the result of filtering
 	 */
 	checkFilterElement(vocabularyList, callback) {
 		// Filter the list
@@ -61,7 +61,7 @@ class Checker {
 	 * @param {Array} vocabularyList Array that contains the current vocabulary
 	 * @param {function} callback Function used to find the element
 	 * @throws {NotFoundError} The element searched with callback must be in vocabularyList
-	 * @returns {Vocabulary} Piece of vocabulary corresponding to callback
+	 * @return {Vocabulary} Piece of vocabulary corresponding to callback
 	 */
 	checkFindElement(vocabularyList, callback) {
 		// Find the element
@@ -80,7 +80,7 @@ class Checker {
 	 * @param {Array} vocabularyList Array that contains the current vocabulary
 	 * @param {function} callback Function used to find the index of the element
 	 * @throws {NotFoundError} The element searched with callback must be in vocabularyList
-	 * @returns {number} Index of the piece of vocabulary given the callback information
+	 * @return {number} Index of the piece of vocabulary given the callback information
 	 */
 	checkFindIndexElement(vocabularyList, callback) {
 		// Find the index of the element
