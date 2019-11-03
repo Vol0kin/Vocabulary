@@ -21,7 +21,8 @@
     "gulp": "^4.0.2",
     "gulp-shell": "^0.7.1",
     "jest": "^24.9.0",
-    "jsdoc": "^3.6.3"
+    "jsdoc": "^3.6.3",
+    "supertest": "^4.0.2"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
