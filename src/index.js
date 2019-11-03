@@ -41,6 +41,21 @@ app.get('/:type', (req, res) => {
 	}
 });
 
+app.post('/:type/:word', (req, res) => {
+	var word = decodeURI(req.params.word);
+
+	try {
+		manager.modifyDescription(word, req.params.type, req.body.desc);
+		res.status(200).json(manager.getVocabularyWordType(word, req.params.type));
+	} catch (exception) {
+		if (exception instanceof TypeError) {
+			res.status(400).send({"error": "Wrong type"});
+		} else {
+			res.status(404).send({"error": "Resource not found!"});
+		}
+	}
+});
+
 app.delete('/:type/:word', (req, res) => {
 	var word = decodeURI(req.params.word);
 
