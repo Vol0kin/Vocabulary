@@ -3,33 +3,33 @@ const Vocabulary = require("../src/Vocabulary");
 const NotFoundError = require("../src/exceptions/NotFoundError");
 const ValueError = require("../src/exceptions/ValueError");
 
-const manager = new VocManager();
-
 describe("Testing class API", () => {
+
+	const manager = new VocManager();
 
 	describe("Testing VocManager's method addVocabulary()", () => {
 
 		test("Try to add a piece of vocabulary passing a non-valid type and except", () => {
 			expect(() => {
-				manager.addVocabulary("Prueba", "nombre", ["Intento de algo"])
+				manager.addVocabulary("Prueba", "nombre", ["Intento de algo"]);
 			}).toThrow(ValueError);
 		});
 	
 		test("Try to add a piece of vocabulary passing a description which is not an Array and except", () => {
 			expect(() => {
-				manager.addVocabulary("Prueba", "noun", "Intento de algo")
+				manager.addVocabulary("Prueba", "noun", "Intento de algo");
 			}).toThrow(TypeError);
 		});
 	
 		test("Try to add a piece of vocabulary passing a description which is an Array but not all elements are string and except", () => {
 			expect(() => {
-				manager.addVocabulary("Prueba", "noun", ["Intento de algo", 1])
+				manager.addVocabulary("Prueba", "noun", ["Intento de algo", 1]);
 			}).toThrow(TypeError);
 		});
 	
 		test("Add a new word to the vocabulary successfully", () => {
 			expect(() => {
-				manager.addVocabulary("Prueba", "noun", ["Intento de algo"])
+				manager.addVocabulary("Prueba", "noun", ["Intento de algo"]);
 			}).not.toThrow();
 		});
 	});
@@ -44,13 +44,13 @@ describe("Testing class API", () => {
 		
 		test("Try to recover a piece of vocabulary passing a non-valid type and except", () => {
 			expect(() => {
-				manager.getVocabularyWordType("Prueba", "nombre")
+				manager.getVocabularyWordType("Prueba", "nombre");
 			}).toThrow(ValueError);
 		});
 
 		test("Try to recover a piece of vocabulary searching by a word not inserted and except", () => {
 			expect(() => {
-				manager.getVocabularyWordType("Intento", "noun")
+				manager.getVocabularyWordType("Intento", "noun");
 			}).toThrow(NotFoundError);
 		});
 
@@ -62,9 +62,9 @@ describe("Testing class API", () => {
 
 		test("Try to recover a non-existent piece of vocabulary and except", () => {
 			expect(() => {
-				manager.getVocabularyWordType("dormir", "verb")
+				manager.getVocabularyWordType("dormir", "verb");
 			}).toThrow(NotFoundError);
-		})
+		});
 
 		test("Recover successfully a piece of vocabulary by the word and its type and check its class and values", () => {
 			expect(() => {
@@ -112,7 +112,7 @@ describe("Testing class API", () => {
 
 			expect(vocList).toBeInstanceOf(Array);
 			expect(vocList.length).toBeGreaterThan(1);
-		})
+		});
 	});
 
 	describe("Testing VocManager's method modifyDescription()", () => {
@@ -147,6 +147,12 @@ describe("Testing class API", () => {
 			}).toThrow(NotFoundError);
 		});
 
+		test("Try to modify the description of a a non-existent piece of vocabulary and except", () => {
+			expect(() => {
+				manager.modifyDescription("dormir", "verb", ["Echar una siesta larga"]);
+			}).toThrow(NotFoundError);
+		});
+
 		test("Modify successfully the description of a piece of vocabulary and check that it has changed", () => {
 			const oldDesc = manager.getVocabularyWordType("Prueba", "noun").description;
 
@@ -158,5 +164,67 @@ describe("Testing class API", () => {
 
 			expect(oldDesc[0]).not.toEqual(newDesc[0]);
 		});
+	});
+
+	describe("Testing VocManager's method deleteVocabulary()", () => {
+
+		test("Try to delete a piece of vocabulary passing a non-valid type and except", () => {
+			expect(() => {
+				manager.deleteVocabulary("Prueba", "nombre");
+			}).toThrow(ValueError);
+		});
+
+		test("Try to delete a piece of vocabulary searching by a word not inserted and except", () => {
+			expect(() => {
+				manager.deleteVocabulary("Intento", "noun");
+			}).toThrow(NotFoundError);
+		});
+
+		test("Try to delete a piece of vocabulary searching by a different type than the one inserted with and except", () => {
+			expect(() => {
+				manager.deleteVocabulary("Prueba", "verb");
+			}).toThrow(NotFoundError);
+		});
+
+		test("Try to delete a non-existent piece of vocabulary and except", () => {
+			expect(() => {
+				manager.deleteVocabulary("dormir", "verb");
+			}).toThrow(NotFoundError);
+		});
+
+		test("Delete successfully a piece of vocabulary which is the only one of its type and check that it can't be " +
+		"recovered and no vocabulary from that type can be recovered", () => {
+			expect(() => {
+				manager.deleteVocabulary("Prueba", "noun");
+			}).not.toThrow();
+
+			expect(() => {
+				manager.getVocabularyWordType("Prueba", "noun");
+			}).toThrow(NotFoundError);
+
+			expect(() => {
+				manager.getVocabularyType("noun");
+			}).toThrow(NotFoundError);
+		});
+
+		test("Delete successfully a piece of vocabulary which isn't the only one of its type and check that it can't be " +
+		"recovered and that the other vocabulary from that type can be recovered", () => {
+			const prevLenght = manager.getVocabularyType("verb").length;
+
+			expect(() => {
+				manager.deleteVocabulary("comer", "verb");
+			}).not.toThrow();
+
+			expect(() => {
+				manager.getVocabularyWordType("comer", "verb");
+			}).toThrow(NotFoundError);
+
+			expect(() => {
+				manager.getVocabularyType("verb");
+			}).not.toThrow();
+
+			expect(manager.getVocabularyType("verb").length).toBeLessThan(prevLenght);
+		});
+
 	});
 });
