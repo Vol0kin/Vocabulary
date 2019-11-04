@@ -1,7 +1,17 @@
 var gulp = require('gulp');
 var jest = require('gulp-jest').default;
-const shell = require('gulp-shell');
+var exec = require('child_process').exec;
 
+// Tarea para instalar las dependencias
+gulp.task('install', () => {
+	exec('npm i', function(err, stdout, stderr) {
+		console.log(stdout);
+		console.log(stderr);
+		cb(err);
+	});
+});
+
+// Tarea para ejecutar los tests
 gulp.task('test', () => {
 	return gulp.src('test/*.test.js').pipe(jest({
 		"collectCoverage": true,
@@ -9,4 +19,11 @@ gulp.task('test', () => {
 	}));
 });
 
-gulp.task('coveralls', shell.task('cat test/coverage/lcov.info | node_modules/.bin/coveralls'))
+// Tarea para obtener la cobertura del codigo
+gulp.task('coveralls', () => {
+	exec('cat test/coverage/lcov.info | coveralls', function(err, stdout, stderr) {
+		console.log(stdout);
+		console.log(stderr);
+		cb(err);
+	});
+});
