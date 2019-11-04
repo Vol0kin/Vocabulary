@@ -4,7 +4,7 @@ var exec = require('child_process').exec;
 
 // Tarea para instalar las dependencias
 gulp.task('install', function(cb) {
-	exec('npm i', function(err, stdout, stderr) {
+	exec('npm install', function(err, stdout, stderr) {
 		console.log(stdout);
 		console.log(stderr);
 		cb(err);
@@ -21,9 +21,10 @@ gulp.task('test', () => {
 
 // Tarea para obtener la cobertura del codigo
 gulp.task('coveralls', function(cb) {
-	exec('cat test/coverage/lcov.info | coveralls', function(err, stdout, stderr) {
-		console.log(stdout);
-		console.log(stderr);
-		cb(err);
+	exec('cat test/coverage/lcov.info | node_modules/.bin/coveralls',
+		function(err, stdout, stderr) {
+			console.log(stdout);
+			console.log(stderr);
+			cb(err);
 	});
 });
