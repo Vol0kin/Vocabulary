@@ -7,5 +7,5 @@ node_js:
 before_script:
   - npm install -g gulp-cli
 script:
-  - gulp test-class
+  - gulp test
   - gulp coveralls

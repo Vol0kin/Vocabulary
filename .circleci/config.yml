@@ -14,4 +14,4 @@ jobs:
           command: sudo npm install -g gulp-cli
       - run:
           name: Test class
-          command: gulp test-class
+          command: gulp test
