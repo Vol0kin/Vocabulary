@@ -3,7 +3,7 @@ var jest = require('gulp-jest').default;
 var exec = require('child_process').exec;
 
 // Tarea para instalar las dependencias
-gulp.task('install', () => {
+gulp.task('install', function(cb) {
 	exec('npm i', function(err, stdout, stderr) {
 		console.log(stdout);
 		console.log(stderr);
@@ -20,7 +20,7 @@ gulp.task('test', () => {
 });
 
 // Tarea para obtener la cobertura del codigo
-gulp.task('coveralls', () => {
+gulp.task('coveralls', function(cb) {
 	exec('cat test/coverage/lcov.info | coveralls', function(err, stdout, stderr) {
 		console.log(stdout);
 		console.log(stderr);
