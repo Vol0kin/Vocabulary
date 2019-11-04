@@ -34,7 +34,7 @@ app.get('/:type/:word', (req, res) => {
 		res.status(200).json(vocabulary);
 	} catch (exception) {
 		if (exception instanceof ValueError) {
-			res.send(400).send({"error": "Invalid type!"});
+			res.status(400).send({"error": "Invalid type!"});
 		} else {
 			res.status(404).send({"error": "Resource not found!"});
 		}
