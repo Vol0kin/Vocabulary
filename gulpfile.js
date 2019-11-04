@@ -4,7 +4,7 @@ var exec = require('child_process').exec;
 
 // Tarea para instalar las dependencias
 gulp.task('install', function(cb) {
-	exec('npm install', function(err, stdout, stderr) {
+	exec('npm install --verbose', function(err, stdout, stderr) {
 		console.log(stdout);
 		console.log(stderr);
 		cb(err);
