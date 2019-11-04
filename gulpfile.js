@@ -1,12 +1,6 @@
 var gulp = require('gulp');
 var jest = require('gulp-jest').default;
 var exec = require('child_process').exec;
-var gulpDi = require('gulp-dependency-install');
-
-// Tarea para instalar las dependencias
-gulp.task('install', () => {
-	return gulpDi.install(['.']);
-});
 
 // Tarea para ejecutar los tests
 gulp.task('test', () => {
