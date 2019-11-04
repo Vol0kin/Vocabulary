@@ -1,5 +1,5 @@
 const request = require('supertest');
-const app = require('../src/index');
+const app = require('../src/app/app');
 
 const comer = {
 	"word": "comer",
@@ -144,6 +144,16 @@ describe("Testing REST API", () => {
 		test("DELETE /type/word", () => {
 			return request(app).delete("/verb/dormir").then(response => {
 				expect(response.status).toBe(204);
+			});
+		});
+	});
+
+	describe("Testing /status", () => {
+
+		test("GET /status", () => {
+			return request(app).get("/status").then(response => {
+				expect(response.status).toBe(200);
+				expect(response.body).toEqual({"status": "OK"});
 			});
 		});
 	});
