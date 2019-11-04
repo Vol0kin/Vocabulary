@@ -121,7 +121,30 @@ describe("Testing REST API", () => {
 			return request(app).post("/verb/dormir").send(desc).then(response => {
 				expect(response.status).toBe(200);
 				expect(response.body).toStrictEqual({"word": "dormir", "type": "verb", "description": ["zzzzzz"]});
-			})
-		})
+			});
+		});
+	});
+
+	describe("Testing DELETE method", () => {
+
+		test("DELETE /type/word non-valid type", () => {
+			return request(app).delete("/vreb/dormir").then(response => {
+				expect(response.status).toBe(400);
+				expect(response.body).toEqual(invalidType);
+			});
+		});
+
+		test("DELETE /type/word non-valid word", () => {
+			return request(app).delete("/verb/dormitar").then(response => {
+				expect(response.status).toBe(404);
+				expect(response.body).toEqual(resourceNotFound);
+			});
+		});
+
+		test("DELETE /type/word", () => {
+			return request(app).delete("/verb/dormir").then(response => {
+				expect(response.status).toBe(204);
+			});
+		});
 	});
 });
