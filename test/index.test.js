@@ -35,7 +35,7 @@ describe("Testing REST API", () => {
 
 		test("GET /type/word non-valid type", () => {
 			return request(app).get("/verbo/comer").then(response => {
-				expect(response.status).toBe(404);
+				expect(response.status).toBe(400);
 			});
 		});
 
@@ -49,7 +49,7 @@ describe("Testing REST API", () => {
 			return request(app).get("/verb/comer").then(response => {
 				expect(response.status).toBe(200);
 				expect(response.body).toEqual(comer);
-			})
-		})
+			});
+		});
 	});
 });
