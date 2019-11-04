@@ -6,10 +6,6 @@ node_js:
   - 12
 before_install:
   - npm install -g gulp
-  - npm install -g gulp-exec
-  - npm install -g gulp-jest 
-install:
-  - gulp install
 script:
   - gulp test
   - gulp coveralls
