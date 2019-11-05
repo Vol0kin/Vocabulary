@@ -18,6 +18,6 @@ jobs:
       - run:
           name: Start pm2
           command: gulp start
-      -run:
+      - run:
           name: Stop pm2
           command: gulp stop
