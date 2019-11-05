@@ -10,8 +10,14 @@ jobs:
           name: Install GULP
           command: sudo npm install -g gulp
       - run:
+          name: Install pm2
+          command: sudo npm install -g pm2
+      - run:
           name: Install dependencies
           command: npm install .
       - run:
-          name: Run Tests
-          command: gulp test
+          name: Start pm2
+          command: gulp start
+      -run:
+          name: Stop pm2
+          command: gulp stop
