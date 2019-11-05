@@ -68,7 +68,7 @@ class VocManager {
 	/**
 	 * Get a bunch of vocabulary with a specific type
 	 * @param {string} type - The type of the vocabulary to search
-	 * @return {string[]} An Array of Vocabulary object
+	 * @return {Vocabulary[]} An Array of Vocabulary object
 	 * @throws {ValueError} If non-valid type is passed
 	 * @throws {NotFoundError} If no vocabulary matching the given parameters is found
 	 */
