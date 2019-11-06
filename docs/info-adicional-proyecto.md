@@ -4,20 +4,20 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [¿De dónde surge la idea?](#mag-%C2%BFde-d%C3%B3nde-surge-la-idea)
-- [¿Cuál es la idea general del funcionamiento?](#bulb-%C2%BFcu%C3%A1l-es-la-idea-general-del-funcionamiento)
-- [Implementación](#desktop_computer-implementaci%C3%B3n)
-- [Tecnologías a utilizar](#wrench-tecnolog%C3%ADas-a-utilizar)
+- [¿De dónde surge la idea?](#%C2%BFde-d%C3%B3nde-surge-la-idea)
+- [¿Cuál es la idea general del funcionamiento?](#%C2%BFcu%C3%A1l-es-la-idea-general-del-funcionamiento)
+- [Implementación](#implementaci%C3%B3n)
+- [Tecnologías a utilizar](#tecnolog%C3%ADas-a-utilizar)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## :mag: ¿De dónde surge la idea?
+## ¿De dónde surge la idea?
 
 La idea surge de que muchas personas necesitan un sistema rápido y sencillo de utilizar
 para gestionar el vocabulario de una lengua. También, muchas de ellas creen que es conveniente
 y práctico tener un sistema de gestión al que puedan acceder en cualquier momento.
 
-## :bulb: ¿Cuál es la idea general del funcionamiento?
+## ¿Cuál es la idea general del funcionamiento?
 
 La idea principal es, como se ha comentado anteriormente, facilitar la gestión de
 vocabulario. Para ello, se pretende que se pueda almacenar en un
@@ -33,7 +33,7 @@ a aprender, por ejemplo, los verbos que tiene guardados.
 También se podrán eliminar las palabras cuando se crea conveniento, como por ejemplo sería
 el caso de que ya han sido aprendidas.
 
-## :desktop_computer: Implementación
+## Implementación
 
 Se va a implementar el sistema en **Node.js**. Se usará una base de datos no relacional
 para almacenar las palabras, ya que no es información que por sí misma se pueda considerar
@@ -43,7 +43,7 @@ Al ser un microservicio, se tiene en mente que toda la comunicación se pueda ha
 una arquitectura **REST**, lo cuál implicará utilizar las cabeceras y peticiones típicas de
 *HTTP* para comunicarse con el sistema.
 
-## :wrench: Tecnologías a utilizar
+## Tecnologías a utilizar
 
 En este proyecto se van a utilizar las siguientes tecnologías, tanto para su desarrollo como
 para su posterior despliegue:
