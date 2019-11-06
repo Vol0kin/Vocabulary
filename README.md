@@ -53,21 +53,20 @@ npm install .
 
 ## :heavy_check_mark: Ejecución de los tests
 
-Para ejecutar los tests, situándonos en el directorio clonado, basta con hacer lo siguiente:
+Para ejecutar los tests, situándonos en el directorio clonado, basta con ejecutar:
 
 ```bash
 gulp test
 ```
 
-De esta forma, se ejecutan los tests definidos en el directorio `src/test`. Estos tests hacen pruebas
-tanto sobre la clase de gestión como sobre la API REST definida. Para tener más información sobre estos
-tests, se puede consultar esta página de la documentación.
+De esta forma, se ejecutan los tests definidos en el directorio `test/`. Estos tests hacen pruebas
+tanto sobre la clase de gestión como sobre la API REST definida.
 
-Para tener más información sobre qué clases y APIs se están testeando, se recomienda consultar
-[esta página]().
+Si se quiere obtener más información sobre las clases y la API sobre las que se están pasando
+los tests se recomienda consultar la [siguiente página](https://vol0kin.github.io/Vocabulary).
 
-Para tener más información sobre qué es lo que se está teseanto y como se está haciendo, se recomienda
-leer [esta página](https://vol0kin.github.io/Vocabulary/info-tests).
+Para tener más información sobre cómo se están realizando los tests y qué es lo que se está testeando
+exactamente en cada caso, se recomienda leer la [siguiente página](https://vol0kin.github.io/Vocabulary/info-tests).
 
 ## :repeat: Integración continua
 
