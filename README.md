@@ -13,10 +13,11 @@
 
 - [¿Qué es VocabulaRBy?](#thinking-%C2%BFqu%C3%A9-es-vocabularby)
 - [¿Por qué VocabulaRBy?](#sunglasses-%C2%BFpor-qu%C3%A9-vocabularby)
-- [Quiero saber más del proyecto](#quiero-saber-m%C3%A1s-del-proyecto)
+- [Quiero saber más del proyecto](#mag-quiero-saber-m%C3%A1s-del-proyecto)
 - [Instalación del proyecto](#keyboard-instalaci%C3%B3n-del-proyecto)
 - [Ejecución de los tests](#heavy_check_mark-ejecuci%C3%B3n-de-los-tests)
-- [Herramientas de construcción e integración continua](#building_construction-herramientas-de-construcci%C3%B3n-e-integraci%C3%B3n-continua-repeat)
+- [Integración continua](#repeat-integraci%C3%B3n-continua)
+- [Herramienta de construcción](#building_construction-herramienta-de-construcci%C3%B3n)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -41,11 +42,11 @@ de la documentación.
 
 ## :keyboard: Instalación del proyecto
 
-Para poder instalar el proyecto, se necesita tener instalado `node`, `npm` en el equipo. Adicionalmente,
-se necesita tener instalado `gulp`, ya que es la herramienta de construcción utilizada en el proyecto.
-Teniendo esto, lo primero que hay que hacer es clonar el repositorio con `git clone`.
-Una vez hecho esto, nos situamos dentro del directorio e instalamos las dependencias del proyecto
-con la siguiente orden:
+Para poder instalar y trabajar con el proyecto, se necesita tener instalado `node`, `npm` y `gulp`
+en el equipo.
+
+Teniéndolos instalados, nos situamos dentro del directorio raíz del proyecto e instalamos las dependencias
+de este proyecto con la orden:
 
 ```bash
 npm install .
