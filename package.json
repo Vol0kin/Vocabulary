@@ -20,6 +20,7 @@
     "coveralls": "^3.0.7",
     "gulp": "^4.0.2",
     "gulp-apidoc": "^0.2.8",
+    "gulp-jsdoc3": "^2.0.0",
     "jest": "^24.9.0",
     "jsdoc": "^3.6.3",
     "supertest": "^4.0.2"
