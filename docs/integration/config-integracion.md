@@ -4,7 +4,7 @@ En esta sección se describe cómo se ha realizado la configuración de las herr
 de construcción del proyecto. Estas herramientas son TravisCI y CircleCI, cuyas razones
 de uso pueden ser consultadas desde el documento principal.
 
-Es importante destacar que las dos herramientas de integración contínua testean cosas diferentes:
+Es importante destacar que las dos herramientas de integración continua testean cosas diferentes:
 
 - TravisCI testea la clase principal y la API REST.
 - CircleCI testea que se puede iniciar y parar el microservicio con éxito.
