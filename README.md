@@ -36,13 +36,14 @@ organizar el vocabulario por categorías lleva un tiempo considerable.
 
 Si quieres tener más información sobre el proyecto, como por ejemplo de dónde surge la idea,
 cómo se ha implementado y qué tecnologías utiliza, consulta
-[esta parte](https://github.com/Vol0kin/VocabulaRBy/blob/master/docs/extra-doc/info-adicional-proyecto.md)
+[esta parte](https://github.com/Vol0kin/VocabulaRBy/blob/master/docs/info-adicional-proyecto.md)
 de la documentación.
 
 ## :keyboard: Instalación del proyecto
 
-Para poder instalar el proyecto, se necesita tener instalado `node` y `npm` en el equipo. Teniendo esto,
-lo primero que hay que hacer es clonar el repositorio con `git clone`.
+Para poder instalar el proyecto, se necesita tener instalado `node`, `npm` en el equipo. Adicionalmente,
+se necesita tener instalado `gulp`, ya que es la herramienta de construcción utilizada en el proyecto.
+Teniendo esto, lo primero que hay que hacer es clonar el repositorio con `git clone`.
 Una vez hecho esto, nos situamos dentro del directorio e instalamos las dependencias del proyecto
 con la siguiente orden:
 
@@ -55,28 +56,34 @@ npm install .
 Para ejecutar los tests, situándonos en el directorio clonado, basta con hacer lo siguiente:
 
 ```bash
-npm test
+gulp test
 ```
 
-De esta forma, se ejecutan los tests definidos en el directorio `src/test`. Estos tests crean un directorio
-donde escriben la salida, que es `out-test`. Este directorio está a nivel raíz, y contiene un archivo que se
-va sobreescribiendo con cada test. Si se quiere eliminar este directorio, solo se tiene que ejecutar
-la siguiente orden:
+De esta forma, se ejecutan los tests definidos en el directorio `src/test`. Estos tests hacen pruebas
+tanto sobre la clase de gestión como sobre la API REST definida. Para tener más información sobre estos
+tests, se puede consultar esta página de la documentación.
 
-```bash
-rm -rf out-test
-```
+Para tener más información sobre qué clases y APIs se están testeando, se recomienda consultar
+[esta página]().
 
-Para tener más información sobre la clase que se está testeando, se recomienda consultar la
-[siguiente](https://vol0kin.github.io/VocabulaRBy/VocManager.html) página de documentación. Para
-entender qué es lo que se está testeando, se recomienda leer
-[esta](https://github.com/Vol0kin/VocabulaRBy/blob/master/docs/extra-doc/info-tests.md) página.
+Para tener más información sobre qué es lo que se está teseanto y como se está haciendo, se recomienda
+leer [esta página](https://github.com/Vol0kin/VocabulaRBy/blob/master/docs/info-tests.md).
 
-## :building_construction: Herramientas de construcción e integración continua :repeat:
-
-Para consultar información sobre qué herramientas de construcción se están utilizando y cómo están
-configuradas las herramientas de integración continua, se recomienda consultar
-[este enlace](https://github.com/Vol0kin/VocabulaRBy/blob/master/docs/extra-doc/config-tecnologias.md).
+## :repeat: Integración continua
 
 Para entender por qué se ha elegido cada una de las herramientas de integración continua, se recomienda
-consultar la información de este [documento](https://github.com/Vol0kin/VocabulaRBy/blob/master/docs/extra-doc/razones-travis-circle.md).
+consultar la información de este [documento](https://github.com/Vol0kin/VocabulaRBy/blob/master/docs/razones-travis-circle.md).
+
+Si se quiere saber más sobre cómo se han configurado las herramientas de construcción, se
+recomienda seguir [este enlace](https://github.com/Vol0kin/VocabulaRBy/blob/master/docs/extra-doc/config-tecnologias.md).
+
+## :building_construction: Herramienta de construcción
+
+En este proyecto se está utilizando la siguiente _buildtool_:
+
+```
+buildtool: gulpfile.js
+```
+
+Para tener más información sobre qué opciones ofrece, se recomienda consultar el
+siguiente [enlace]().
