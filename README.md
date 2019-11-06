@@ -68,15 +68,15 @@ Para tener más información sobre qué clases y APIs se están testeando, se re
 [esta página]().
 
 Para tener más información sobre qué es lo que se está teseanto y como se está haciendo, se recomienda
-leer [esta página](https://github.com/Vol0kin/Vocabulary/blob/master/docs/info-tests.md).
+leer [esta página](https://vol0kin.github.io/Vocabulary/info-tests).
 
 ## :repeat: Integración continua
 
 Para entender por qué se ha elegido cada una de las herramientas de integración continua, se recomienda
-consultar la información de este [documento](https://github.com/Vol0kin/Vocabulary/blob/master/docs/razones-travis-circle.md).
+consultar la información de este [documento](https://vol0kin.github.io/Vocabulary/razones-travis-circle).
 
 Si se quiere saber más sobre cómo se han configurado las herramientas de construcción, se
-recomienda seguir [este enlace](https://github.com/Vol0kin/Vocabulary/blob/master/docs/extra-doc/config-tecnologias.md).
+recomienda seguir [este enlace](https://vol0kin.github.io/Vocabulary/config-integracion).
 
 ## :building_construction: Herramienta de construcción
 
