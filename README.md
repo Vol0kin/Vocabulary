@@ -2,7 +2,7 @@
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Build Status](https://travis-ci.org/Vol0kin/VocabulaRBy.svg?branch=master)](https://travis-ci.org/Vol0kin/VocabulaRBy)
-[![CircleCI](https://circleci.com/gh/Vol0kin/VocabulaRBy.svg?style=svg)](https://circleci.com/gh/Vol0kin/VocabulaRBy)
+[![CircleCI](https://circleci.com/gh/Vol0kin/Vocabulary.svg?style=svg)](https://circleci.com/gh/Vol0kin/Vocabulary)
 [![Coverage Status](https://coveralls.io/repos/github/Vol0kin/VocabulaRBy/badge.svg?branch=master)](https://coveralls.io/github/Vol0kin/VocabulaRBy?branch=master)
 
 ## Tabla de contenidos
