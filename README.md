@@ -11,8 +11,8 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [¿Qué es VocabulaRBy?](#thinking-%C2%BFqu%C3%A9-es-vocabularby)
-- [¿Por qué VocabulaRBy?](#sunglasses-%C2%BFpor-qu%C3%A9-vocabularby)
+- [¿Qué es Vocabulary?](#thinking-%C2%BFqu%C3%A9-es-vocabulary)
+- [¿Por qué Vocabulary?](#sunglasses-%C2%BFpor-qu%C3%A9-vocabulary)
 - [Quiero saber más del proyecto](#mag-quiero-saber-m%C3%A1s-del-proyecto)
 - [Instalación del proyecto](#keyboard-instalaci%C3%B3n-del-proyecto)
 - [Ejecución de los tests](#heavy_check_mark-ejecuci%C3%B3n-de-los-tests)
@@ -21,12 +21,12 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## :thinking: ¿Qué es VocabulaRBy?
+## :thinking: ¿Qué es Vocabulary?
 
-VocabulaRBy es un microservicio que permite la gestión de vocabulario
+Vocabulary es un microservicio que permite la gestión de vocabulario
 a la hora de aprender una lengua.
 
-## :sunglasses: ¿Por qué VocabulaRBy?
+## :sunglasses: ¿Por qué Vocabulary?
 
 Cuando se aprende una nueva lengua, además de la gramática, una parte muy importante
 es el vocabulario. Gestionar y almacenar el vocabulario que se quiere aprender por medios
@@ -37,7 +37,7 @@ organizar el vocabulario por categorías lleva un tiempo considerable.
 
 Si quieres tener más información sobre el proyecto, como por ejemplo de dónde surge la idea,
 cómo se ha implementado y qué tecnologías utiliza, consulta
-[esta parte](https://github.com/Vol0kin/VocabulaRBy/blob/master/docs/info-adicional-proyecto.md)
+[esta parte](https://github.com/Vol0kin/Vocabulary/blob/master/docs/info-adicional-proyecto.md)
 de la documentación.
 
 ## :keyboard: Instalación del proyecto
@@ -68,15 +68,15 @@ Para tener más información sobre qué clases y APIs se están testeando, se re
 [esta página]().
 
 Para tener más información sobre qué es lo que se está teseanto y como se está haciendo, se recomienda
-leer [esta página](https://github.com/Vol0kin/VocabulaRBy/blob/master/docs/info-tests.md).
+leer [esta página](https://github.com/Vol0kin/Vocabulary/blob/master/docs/info-tests.md).
 
 ## :repeat: Integración continua
 
 Para entender por qué se ha elegido cada una de las herramientas de integración continua, se recomienda
-consultar la información de este [documento](https://github.com/Vol0kin/VocabulaRBy/blob/master/docs/razones-travis-circle.md).
+consultar la información de este [documento](https://github.com/Vol0kin/Vocabulary/blob/master/docs/razones-travis-circle.md).
 
 Si se quiere saber más sobre cómo se han configurado las herramientas de construcción, se
-recomienda seguir [este enlace](https://github.com/Vol0kin/VocabulaRBy/blob/master/docs/extra-doc/config-tecnologias.md).
+recomienda seguir [este enlace](https://github.com/Vol0kin/Vocabulary/blob/master/docs/extra-doc/config-tecnologias.md).
 
 ## :building_construction: Herramienta de construcción
 
