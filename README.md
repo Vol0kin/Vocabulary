@@ -37,8 +37,7 @@ organizar el vocabulario por categorías lleva un tiempo considerable.
 
 Si quieres tener más información sobre el proyecto, como por ejemplo de dónde surge la idea,
 cómo se ha implementado y qué tecnologías utiliza, consulta
-[esta parte](https://github.com/Vol0kin/Vocabulary/blob/master/docs/info-adicional-proyecto.md)
-de la documentación.
+[esta página](https://vol0kin.github.io/Vocabulary/info-adicional-proyecto).
 
 ## :keyboard: Instalación del proyecto
 
@@ -46,7 +45,7 @@ Para poder instalar y trabajar con el proyecto, se necesita tener instalado `nod
 en el equipo.
 
 Teniéndolos instalados, nos situamos dentro del directorio raíz del proyecto e instalamos las dependencias
-de este proyecto con la orden:
+del proyecto con la orden:
 
 ```bash
 npm install .
@@ -73,10 +72,10 @@ leer [esta página](https://vol0kin.github.io/Vocabulary/info-tests).
 ## :repeat: Integración continua
 
 Para entender por qué se ha elegido cada una de las herramientas de integración continua, se recomienda
-consultar la información de este [documento](https://vol0kin.github.io/Vocabulary/razones-travis-circle).
+consultar la información disponible [aquí](https://vol0kin.github.io/Vocabulary/razones-travis-circle).
 
 Si se quiere saber más sobre cómo se han configurado las herramientas de construcción, se
-recomienda seguir [este enlace](https://vol0kin.github.io/Vocabulary/config-integracion).
+recomienda consultar la información disponible en [este enlace](https://vol0kin.github.io/Vocabulary/config-integracion).
 
 ## :building_construction: Herramienta de construcción
 
