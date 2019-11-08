@@ -6,7 +6,7 @@ var jsdoc = require('gulp-jsdoc3');
 
 // Task to runs pm2
 gulp.task('start', function(cb) {
-	exec('pm2 start src/index.js -i 4',
+	exec('pm2 start src/index.js -i 4 --name Vocabulary',
 		function(err, stdout, stderr) {
 			console.log(stdout);
 			console.log(stderr);
@@ -16,7 +16,7 @@ gulp.task('start', function(cb) {
 
 // Task to stop pm2
 gulp.task('stop', function(cb) {
-	exec('pm2 stop all',
+	exec('pm2 stop Vocabulary',
 		function(err, stdout, stderr) {
 			console.log(stdout);
 			console.log(stderr);
@@ -26,7 +26,17 @@ gulp.task('stop', function(cb) {
 
 // Taskt to restart pm2
 gulp.task('restart', function(cb) {
-	exec('pm2 restart src/index.js',
+	exec('pm2 restart Vocabulary',
+		function(err, stdout, stderr) {
+			console.log(stdout);
+			console.log(stderr);
+			cb(err);
+	});
+});
+
+// Taskt to reload pm2
+gulp.task('reload', function(cb) {
+	exec('pm2 reload Vocabulary',
 		function(err, stdout, stderr) {
 			console.log(stdout);
 			console.log(stderr);
