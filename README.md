@@ -62,6 +62,9 @@ En este proyecto se está utilizando la siguiente _buildtool_:
 buildtool: gulpfile.js
 ```
 
+Para tener más información sobre ésta, consulta
+[esta página](https://vol0kin.github.io/Vocabulary/buildtool/info-buildtool).
+
 ## :mag: Quiero saber más del proyecto
 
 Si eres una mente curiosa y quieres saber más sobre el proyecto, como por ejemplo qué tecnologías y
