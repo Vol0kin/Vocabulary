@@ -1,7 +1,7 @@
 # ¿Cómo se ajusta la API REST a las historias de usuario?
 
 Como bien sabemos, hay una serie de requisitos que la API REST y el microservicio
-en general deben cumplir, los cuáles pueden verse [aquí](https://vol0kin.github.io/Vocabulary/project-info/info-adicional-proyecto#cu%C3%A1l-es-la-idea-general-del-funcionamiento).
+en general deben cumplir, los cuáles pueden verse [aquí](https://vol0kin.github.io/Vocabulary/info-adicional-proyecto#cu%C3%A1l-es-la-idea-general-del-funcionamiento).
 
 Para ello, la API REST se ha diseñado de forma que sea sencilla de
 utilizar y para que permita llevar a cabo estos requerimientos de una manera
