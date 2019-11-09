@@ -63,7 +63,7 @@ buildtool: gulpfile.js
 ```
 
 Para tener más información sobre ésta, consulta
-[esta página](https://vol0kin.github.io/Vocabulary/buildtool/info-buildtool).
+[esta página](https://vol0kin.github.io/Vocabulary/buildtool).
 
 ## :mag: Quiero saber más del proyecto
 

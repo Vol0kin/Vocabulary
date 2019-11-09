@@ -7,9 +7,9 @@ más información sobre esta, se recomienda visitar la [página principal](https
 Para este proyecto, la *buildtool* se ha utilizado para facilitar los procesos
 de testing, generación de la documentación, obtención de cobertura
 de los tests e inicialización, reinicio y parada del microservicio
-mediante el gestor de tareas [PM2](https://pm2.keymetrics.io/),
-escogido porque es el gestor de tareas más famoso y usado para
-Node.
+mediante el gestor de tareas [PM2](https://pm2.keymetrics.io/).
+Para más información sobre éste, consulta [esta parte]()
+de la documentación.
 
 ## ¿Cómo usar la _buildtool_ con el proyecto?
 
