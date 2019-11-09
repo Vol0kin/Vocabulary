@@ -65,6 +65,9 @@ buildtool: gulpfile.js
 Para tener más información sobre ésta, consulta
 [esta página](https://vol0kin.github.io/Vocabulary/buildtool).
 
+Para obtener información sobre el gestor de procesos, utilizado
+por `gulp`, consulta [esta página](https://vol0kin.github.io/Vocabulary/pm2-gestor-procesos).
+
 ## :mag: Quiero saber más del proyecto
 
 Si eres una mente curiosa y quieres saber más sobre el proyecto, como por ejemplo qué tecnologías y

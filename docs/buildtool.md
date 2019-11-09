@@ -8,7 +8,7 @@ Para este proyecto, la *buildtool* se ha utilizado para facilitar los procesos
 de testing, generación de la documentación, obtención de cobertura
 de los tests e inicialización, reinicio y parada del microservicio
 mediante el gestor de tareas [PM2](https://pm2.keymetrics.io/).
-Para más información sobre éste, consulta [esta parte]()
+Para más información sobre éste, consulta [esta parte](https://vol0kin.github.io/Vocabulary/pm2-gestor-procesos)
 de la documentación.
 
 ## ¿Cómo usar la _buildtool_ con el proyecto?
