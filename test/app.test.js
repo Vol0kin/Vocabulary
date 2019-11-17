@@ -13,6 +13,14 @@ const resourceNotFound = {"error": "Resource not found!"};
 
 describe("Testing REST API", () => {
 
+	describe("Testing /", () => {
+		test("GET /", () => {
+			return request(app).get("/").then(response => {
+				expect(response.status).toBe(200);
+			});
+		});
+	});
+
 	describe("Testing PUT method", () => {
 
 		test("PUT /type/word non-valid type", () => {

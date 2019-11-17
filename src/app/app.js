@@ -112,6 +112,18 @@ app.get('/status', (req, res) => {
 });
 
 /**
+ * @api {get} / GET /
+ * @apiDescription Get information about the microservice
+ * @apiGroup Vocabulary
+ * @apiName GetHome
+ * @apiExample {curl} Example usage:
+ *     curl http://localhost:8080/
+ */
+app.get('/', (req, res) => {
+	res.send("Welcome to Vocabulary! To check the status of this microservice and to get an example of usage, check /status")
+});
+
+/**
  * @api {put} /:type/:word PUT /:type/:word
  * @apiDescription Create a new piece of vocabulary containing a word of a certain type
  * @apiGroup Vocabulary
@@ -129,7 +141,6 @@ app.put('/:type/:word', (req, res) => {
 	var word = decodeURI(req.params.word);
 
 	try {
-		console.log(req.body.desc);
 		manager.addVocabulary(word, req.params.type, req.body.desc);
 		res.status(201).json(manager.getVocabularyWordType(word, req.params.type));
 	} catch (exception) {
