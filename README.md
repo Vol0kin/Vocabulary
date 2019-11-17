@@ -71,7 +71,7 @@ por `gulp`, consulta [esta página](https://vol0kin.github.io/Vocabulary/pm2-ges
 
 ## :cloud: Despliegue en un PaaS
 
-Despliegue: [https://vocabulary-vi.herokuapp.com/](https://vocabulary-vi.herokuapp.com/)
+Despliegue: https://vocabulary-vi.herokuapp.com/
 
 Para obtener más información, consulta [esta página](https://vol0kin.github.io/Vocabulary/despliegue).
 
