@@ -23,6 +23,7 @@ Las tareas que soporta son las siguientes:
 * `gulp test`: Ejecuta los tests que se encuentran en `test/`.
 * `gulp coveralls`: Se tiene que ejecutar después de `gulp test`, y permite
 obtener cobertura del código.
+* `gulp start-node`: Inicia el microservicio utilizando `node`.
 * `gulp start`: Inicia el microservicio utilizando PM2.
 * `gulp restart`: Reinicia el microservicio, matando el proceso que se está ejecutando
 e iniciandolo de nuevo. Para ello utiliza PM2.
