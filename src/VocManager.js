@@ -8,6 +8,8 @@ class VocManager {
 	constructor() {
 		this.vocabularyList = [];
 		this.checker = new Checker();
+
+		this.addVocabulary("hello world", "expression", ["Expression used by programmers when learning a new programming language or tool"]);
 	}
 
 	/**

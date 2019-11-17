@@ -104,7 +104,11 @@ app.use(bodyParser.json());
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
  *     {
- *        "status": "OK"
+ *        "status": "OK",
+ * 				"example": {
+ * 					"route": "/expression/hello%20world",
+ * 					"value": "{"word":"hello world","type":"expression","description":["Expression used by programmers when learning a new programming language or tool"]}"
+ * 				}
  *     }
  */
 app.get('/status', (req, res) => {

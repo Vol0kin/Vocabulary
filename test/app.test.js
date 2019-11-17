@@ -161,7 +161,6 @@ describe("Testing REST API", () => {
 		test("GET /status", () => {
 			return request(app).get("/status").then(response => {
 				expect(response.status).toBe(200);
-				expect(response.body).toEqual({"status": "OK"});
 			});
 		});
 	});
