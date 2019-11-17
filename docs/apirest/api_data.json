@@ -28,7 +28,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n   \"status\": \"OK\"\n}",
+          "content": "    HTTP/1.1 200 OK\n    {\n       \"status\": \"OK\",\n\t\t\t\t\"example\": {\n\t\t\t\t\t\"route\": \"/expression/hello%20world\",\n\t\t\t\t\t\"value\": \"{\"word\":\"hello world\",\"type\":\"expression\",\"description\":[\"Expression used by programmers when learning a new programming language or tool\"]}\"\n\t\t\t\t}\n    }",
           "type": "json"
         }
       ]
