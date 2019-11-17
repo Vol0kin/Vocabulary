@@ -4,7 +4,17 @@ var exec = require('child_process').exec;
 var apidoc = require('gulp-apidoc');
 var jsdoc = require('gulp-jsdoc3');
 
-// Task to runs pm2
+// Task to start microservice using node (no pm2 involved)
+gulp.task('start-node', function(cb) {
+	exec('node src/index.js',
+		function(err, stdout, stderr) {
+			console.log(stdout);
+			console.log(stderr);
+			cb(err);
+	});
+});
+
+// Task to run pm2
 gulp.task('start', function(cb) {
 	exec('pm2 start src/index.js -i 4 --name Vocabulary',
 		function(err, stdout, stderr) {
