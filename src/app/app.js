@@ -118,6 +118,9 @@ app.get('/status', (req, res) => {
  * @apiName GetHome
  * @apiExample {curl} Example usage:
  *     curl http://localhost:8080/
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     Welcome to Vocabulary! To check the status of this microservice and to get an example of usage, check /status
  */
 app.get('/', (req, res) => {
 	res.send("Welcome to Vocabulary! To check the status of this microservice and to get an example of usage, check /status")

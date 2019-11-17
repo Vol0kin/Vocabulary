@@ -93,6 +93,33 @@ define({ "api": [
   },
   {
     "type": "get",
+    "url": "/",
+    "title": "GET /",
+    "description": "<p>Get information about the microservice</p>",
+    "group": "Vocabulary",
+    "name": "GetHome",
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "curl http://localhost:8080/",
+        "type": "curl"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\nWelcome to Vocabulary! To check the status of this microservice and to get an example of usage, check /status",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/app/app.js",
+    "groupTitle": "Vocabulary"
+  },
+  {
+    "type": "get",
     "url": "/:type",
     "title": "GET /:type",
     "description": "<p>Get a bunch of vocabulary identified by its type</p>",
