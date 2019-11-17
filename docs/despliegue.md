@@ -83,14 +83,59 @@ lo necesario para instalar `gulp`.
 
 ## Desplegando nuestra aplicación en la nube
 
+Ahora solo queda desplegar nuestra aplicación en la nube. Para ello, podemos hacerlo de forma manual
+con la siguiente orden:
+
 ```bash
 git push heroku master
 ```
 
+De esta forma, se realizaría el despliegue de la aplicación con el nombre que se le ha dado
+anteriormente. En realidad lo que estamos haciendo es subir nuestros archivos a un repositorio
+remoto identificado por `heroku`. Para comprobarlo, podemos ejecutar `git remote -v`, y obtenemos
+la siguiente información:
+
+![Remote](img/heroku-remote.png)
+
+Esto se ha realizado de forma automática en el momento en el que hemos creado nuestra aplicación
+con `heroku apps:create`.
+
+Si queremos consultar los *logs*, podemos ejecutar la siguiente orden:
+
+```bash
+heroku logs --tail
+```
+
+De esta forma, obtendremos información sobre el despliegue de la aplicación.
+
+Sin embargo, para automatizar el proceso de despliegue de la aplicación, podemos especificarle
+a Heroku que queremos desplegar desde GitHub cada vez que hacemos `git push`, ya que sino, tendríamos
+que hacer dos `push` cada vez.
+
+Para ello, lo primero que tenemos que hacer es acceder la página de Heroku donde está nuestra
+aplicación.
+
 ![Default](img/heroku-deploy-default.png)
+
+Podemos ver que por defecto, está puesto que el despliegue se haga desde el *CLI*. Para cambiarlo
+a GitHub, tenemos que seleccionar la opción como se puede ver en la siguiente imagen e idendificarnos
+con GitHub. Después, nos pedirá el nombre del repositorio, y lo tendremos que escribir.
 
 ![Repo](img/heroku-deploy-repo.png)
 
+Cuando le demos a *Connect*, simplemente nos quedaría por marcar la opción de que se despliegue automáticamente
+cuando se pasen los tests que tengamos definidos en los sitemas de CI. Esto se puede ver en la siguiente
+imagen:
+
 ![Integration](img/heroku-deploy-integracion.png)
 
+Cuando le demos a *Enable Automatic Deploys* ya estará completo el proceso, y se desplegará automáticamente
+desde GitHub.
+
+En cualquier momento, podemos acceder al estado de nuestra aplicación con `heroku ps`, el cuál nos dará
+información sobre el estado de todos los [dynos](https://www.heroku.com/dynos) que use nuestra aplicación,
+como se puede ver a continuación:
+
 ![ps](img/heroku-deploy-ps.png)
+
+Adicionalmente, en cualquier momento podremos consultar los *logs*, de la manera que se ha especificado antes.
