@@ -18,7 +18,6 @@
   "homepage": "https://github.com/Vol0kin/Vocabulary#readme",
   "devDependencies": {
     "coveralls": "^3.0.7",
-    "gulp": "^4.0.2",
     "gulp-apidoc": "^0.2.8",
     "gulp-jsdoc3": "^2.0.0",
     "jest": "^24.9.0",
@@ -29,6 +28,7 @@
     "body-parser": "^1.19.0",
     "doctoc": "^1.4.0",
     "express": "^4.17.1",
+    "gulp": "^4.0.2",
     "gulp-exec": "^4.0.0",
     "gulp-jest": "^4.0.3",
     "jest-cli": "^24.9.0",
