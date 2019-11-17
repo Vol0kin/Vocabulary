@@ -107,12 +107,18 @@ app.use(bodyParser.json());
  *        "status": "OK",
  * 				"example": {
  * 					"route": "/expression/hello%20world",
- * 					"value": "{"word":"hello world","type":"expression","description":["Expression used by programmers when learning a new programming language or tool"]}"
+ * 					"value": {"word":"hello world","type":"expression","description":["Expression used by programmers when learning a new programming language or tool"]}
  * 				}
  *     }
  */
 app.get('/status', (req, res) => {
-	res.send({"status": "OK"});
+	res.send({
+						"status": "OK",
+						"example": {
+							"route": "/expression/hello%20world",
+							"value": {"word":"hello world","type":"expression","description":["Expression used by programmers when learning a new programming language or tool"]}
+						}
+		    	});
 });
 
 /**
