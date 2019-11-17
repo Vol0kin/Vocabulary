@@ -16,6 +16,7 @@
 - [Instalación del proyecto](#keyboard-instalaci%C3%B3n-del-proyecto)
 - [Ejecución de los tests](#heavy_check_mark-ejecuci%C3%B3n-de-los-tests)
 - [Herramienta de construcción](#building_construction-herramienta-de-construcci%C3%B3n)
+- [Despliegue en un PaaS](#cloud-despliegue-en-un-paas)
 - [Quiero saber más del proyecto](#mag-quiero-saber-m%C3%A1s-del-proyecto)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -67,6 +68,14 @@ Para tener más información sobre ésta, consulta
 
 Para obtener información sobre el gestor de procesos, utilizado
 por `gulp`, consulta [esta página](https://vol0kin.github.io/Vocabulary/pm2-gestor-procesos).
+
+## :cloud: Despliegue en un PaaS
+
+```
+Despliegue: https://vocabulary-vi.herokuapp.com/
+```
+
+Para obtener más información, consulta [esta página](https://vol0kin.github.io/Vocabulary/despliegue).
 
 ## :mag: Quiero saber más del proyecto
 

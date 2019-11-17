@@ -1,4 +1,4 @@
-# Despliegue del microservicio en Heroku
+# Despliegue del microservicio en un PaaS
 
 ```bash
 sudo snap install heroku --classic
