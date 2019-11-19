@@ -1,10 +1,10 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var VocManager = require('../VocManager');
+var Vocabulary = require('../Vocabulary');
 const ValueError = require('../exceptions/ValueError');
 
 var app = express();
-const manager = new VocManager();
+const vocabulary = new Vocabulary();
 
 app.use(bodyParser.json());
 
@@ -154,8 +154,8 @@ app.put('/:type/:word', (req, res) => {
 	var word = decodeURI(req.params.word);
 
 	try {
-		manager.addVocabulary(word, req.params.type, req.body.desc);
-		res.status(201).json(manager.getVocabularyWordType(word, req.params.type));
+		vocabulary.addVocabulary(word, req.params.type, req.body.desc);
+		res.status(201).json(vocabulary.getVocabularyWordType(word, req.params.type));
 	} catch (exception) {
 		if (exception instanceof TypeError) {
 			res.status(400).send({"error": "Invalid description! Expected array of strings!"});
@@ -182,8 +182,8 @@ app.get('/:type/:word', (req, res) => {
 	var word = decodeURI(req.params.word);
 
 	try {
-		var vocabulary = manager.getVocabularyWordType(word, req.params.type);
-		res.status(200).json(vocabulary);
+		var voc = vocabulary.getVocabularyWordType(word, req.params.type);
+		res.status(200).json(voc);
 	} catch (exception) {
 		if (exception instanceof ValueError) {
 			res.status(400).send({"error": "Invalid type!"});
@@ -207,8 +207,8 @@ app.get('/:type/:word', (req, res) => {
  */
 app.get('/:type', (req, res) => {
 	try {
-		var vocabulary = manager.getVocabularyType(req.params.type);
-		res.status(200).json(vocabulary);
+		var voc = vocabulary.getVocabularyType(req.params.type);
+		res.status(200).json(voc);
 	} catch (exception) {
 		if (exception instanceof ValueError) {
 			res.status(400).send({"error": "Invalid type!"});
@@ -236,8 +236,8 @@ app.post('/:type/:word', (req, res) => {
 	var word = decodeURI(req.params.word);
 
 	try {
-		manager.modifyDescription(word, req.params.type, req.body.desc);
-		res.status(200).json(manager.getVocabularyWordType(word, req.params.type));
+		vocabulary.modifyDescription(word, req.params.type, req.body.desc);
+		res.status(200).json(vocabulary.getVocabularyWordType(word, req.params.type));
 	} catch (exception) {
 		if (exception instanceof ValueError) {
 			res.status(400).send({"error": "Invalid type!"});
@@ -266,7 +266,7 @@ app.delete('/:type/:word', (req, res) => {
 	var word = decodeURI(req.params.word);
 
 	try {
-		manager.deleteVocabulary(word, req.params.type);
+		vocabulary.deleteVocabulary(word, req.params.type);
 		res.sendStatus(204);
 	} catch (exception) {
 		if (exception instanceof ValueError) {

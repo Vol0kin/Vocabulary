@@ -56,7 +56,7 @@ gulp.task('reload', function(cb) {
 
 // Task to run tests
 gulp.task('test', () => {
-	return gulp.src('test/*.test.js').pipe(jest({
+	return gulp.src('test/').pipe(jest({
 		"collectCoverage": true,
 		"coverageDirectory": "test/coverage/"
 	}));
