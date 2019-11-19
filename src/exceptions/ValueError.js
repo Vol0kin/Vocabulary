@@ -6,7 +6,19 @@ class ValueError extends Error {
 	 */
 	constructor(message) {
 		super(message);
+
+		/**
+		 * Name of the exception
+		 * @type {string}
+		 * @public
+		 */
 		this.name = 'ValueError';
+
+		/**
+		 * Message associated to the exception
+		 * @type {string}
+		 * @public
+		 */
 		this.message = message;
 	}	
 }

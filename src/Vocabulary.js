@@ -4,17 +4,15 @@ const NotFoundError = require("./exceptions/NotFoundError");
 
 /**
  * Class representing a bunch of words - vocabulary in general
- * @class
- * @constructor
- * @public
  */
 class Vocabulary {
 	/**
-	 * Create a new Vocabulary
+	 * Creates a new Vocabulary instance
+   * @constructor
 	 */
 	constructor() {
     /**
-     * vocabularyList is a list which contains the vocabulary
+     * Array that contains the words which make up the vocabulary
      * @type {Word[]}
      * @public
      */
@@ -25,9 +23,9 @@ class Vocabulary {
 	}
 
 	/**
-	 * Static attribute that contains the allowed word types
+	 * Static Enum attribute that contains the allowed word types
    * @readonly
-   * @enum {string}s
+   * @enum {string}
 	 */
 	static get ALLOWED_TYPES() {
 		return {
