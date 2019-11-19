@@ -74,7 +74,7 @@ gulp.task('coveralls', function(cb) {
 
 // Task to generate documentation, both for classes and REST API
 gulp.task('doc', function(done) {
-	gulp.src(["src/Voc*.js", "src/exceptions/*.js", "src/Checker.js"], {read: false}).pipe(jsdoc({
+	gulp.src(["src/Voc*.js", "src/exceptions/*.js"], {read: false}).pipe(jsdoc({
 		"opts": {
 			"destination": "docs/Vocabulary"
 		}
