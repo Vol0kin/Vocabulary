@@ -1,5 +1,6 @@
 const Vocabulary = require("./Vocabulary");
-const Checker = require("./Checker");
+const ValueError = require("./exceptions/ValueError");
+const NotFoundError = require("./exceptions/NotFoundError");
 
 class VocManager {
 	/**
@@ -7,7 +8,6 @@ class VocManager {
 	 */
 	constructor() {
 		this.vocabularyList = [];
-		this.checker = new Checker();
 
 		this.addVocabulary("hello world", "expression", ["Expression used by programmers when learning a new programming language or tool"]);
 	}
@@ -31,10 +31,10 @@ class VocManager {
 	addVocabulary(word, type, desc) {
 		try {
 			// Check if the type is found in the allowed types
-			this.checker.checkTypeInAllowedTypes(VocManager.ALLOWED_TYPES, type);
+			this._checkTypeInAllowedTypes(VocManager.ALLOWED_TYPES, type);
 
 			// Check if the description is correct
-			this.checker.checkDescription(desc);
+			this._checkDescription(desc);
 
 			// Add the new vocabulary
 			var vocabulary = new Vocabulary(word, type, desc);
@@ -55,11 +55,12 @@ class VocManager {
 	getVocabularyWordType(word, type) {
 		try {
 			// Check if the type is found in the allowed types
-			this.checker.checkTypeInAllowedTypes(VocManager.ALLOWED_TYPES, type);
+			this._checkTypeInAllowedTypes(VocManager.ALLOWED_TYPES, type);
 
 			// Check if the vocabulary exists and get it if it does
-			var vocabulary = this.checker.checkFindElement(this.vocabularyList,
-				element => element.word == word && element.type == type);
+			var vocabulary = this._checkFindElement(
+				element => element.word == word && element.type == type
+			);
 		} catch (exception) {
 			throw exception;
 		}
@@ -77,11 +78,12 @@ class VocManager {
 	getVocabularyType(type) {
 		try {
 			// Check if the type is found in the allowed types
-			this.checker.checkTypeInAllowedTypes(VocManager.ALLOWED_TYPES, type);
+			this._checkTypeInAllowedTypes(VocManager.ALLOWED_TYPES, type);
 
 			// Check if the vocabulary exists and get it if it does
-			var vocabulary = this.checker.checkFilterElement(this.vocabularyList,
-				element => element.type == type);
+			var vocabulary = this._checkFilterElement(
+				element => element.type == type
+			);
 		} catch (exception) {
 			throw exception;
 		}
@@ -102,15 +104,16 @@ class VocManager {
 	modifyDescription(word, type, newDesc) {
 		try {
 			// Check if the type is found in the allowed types
-			this.checker.checkTypeInAllowedTypes(VocManager.ALLOWED_TYPES, type);
+			this._checkTypeInAllowedTypes(VocManager.ALLOWED_TYPES, type);
 
 			// Check description
-			this.checker.checkDescription(newDesc);
+			this._checkDescription(newDesc);
 
 			// Find the index of the piece of vocabulary which has the same word
 			// and type as the ones given, if it exists
-			var index = this.checker.checkFindIndexElement(this.vocabularyList,
-				voc => voc.word == word && voc.type == type);
+			var index = this._checkFindIndexElement(
+				voc => voc.word == word && voc.type == type
+			);
 			
 			// Set new description
 			this.vocabularyList[index].description = newDesc;
@@ -129,18 +132,102 @@ class VocManager {
 	deleteVocabulary(word, type){
 		try {
 			// Check if the type is found in the allowed types
-			this.checker.checkTypeInAllowedTypes(VocManager.ALLOWED_TYPES, type);
+			this._checkTypeInAllowedTypes(VocManager.ALLOWED_TYPES, type);
 
 			// Find the index of the piece of vocabulary which has the same word
 			// and type as the ones given, if it exists
-			var index = this.checker.checkFindIndexElement(this.vocabularyList,
-				voc => voc.word == word && voc.type == type);
+			var index = this._checkFindIndexElement(
+				voc => voc.word == word && voc.type == type
+			);
 
 			// Remove the element from the vocabulary list
 			this.vocabularyList.splice(index, 1);
 		} catch (exception) {
 			throw exception;
 		}
+	}
+
+	/**
+	 * Check if the given type is found in the allowed types
+	 * @param {Array} allowedTypes Allowed types of vocabulary
+	 * @param {string} inputType Type of the vocabulary
+	 * @throws {ValueError} Value of type must be in allowedTypes
+	 */
+	_checkTypeInAllowedTypes(allowedTypes, inputType) {
+		if (!allowedTypes.includes(inputType)) {
+			throw new ValueError('Unvalid value of type. The allowed ones are the following: ' + allowedTypes);
+		}
+	}
+
+	/**
+	 * Check if the given description of the vocabulary is an array of string
+	 * @param {Array} description Array of descriptiones to be checked
+	 * @throws {TypeError} Type of description must be an Array of string
+	 */
+	_checkDescription(description) {
+		// Check if description is an array
+		if (!Array.isArray(description)) {
+			throw new TypeError('Expected decription to be an Array instance');
+		}
+
+		// Check if every value is a string
+		if (!description.every(value => typeof value == 'string')) {
+			throw new TypeError('Expected every value of description to be a String instance');
+		}
+	}
+
+	/**
+	 * Filters the list of vocabulary given a callback function
+	 * @param {function} callback Function used to filter the elements
+	 * @throws {NotFoundError} The element searched with callback must be in vocabularyList
+	 * @return {Array} Array containing the result of filtering
+	 */
+	_checkFilterElement(callback) {
+		// Filter the list
+		var filterResult = this.vocabularyList.filter(callback);
+
+		// If no elements are found, except
+		if (filterResult.length == 0) {
+			throw new NotFoundError("Didn't find any vocabulary");
+		}
+
+		return filterResult;
+	}
+
+	/**
+	 * Searches for an element in the list of vocabulary given a callback function
+	 * @param {function} callback Function used to find the element
+	 * @throws {NotFoundError} The element searched with callback must be in vocabularyList
+	 * @return {Vocabulary} Piece of vocabulary corresponding to callback
+	 */
+	_checkFindElement(callback) {
+		// Find the element
+		var element = this.vocabularyList.find(callback);
+
+		// Except if none is found
+		if (element == undefined) {
+			throw new NotFoundError("Didn't find any vocabulary matching the given information");
+		}
+
+		return element;
+	}
+
+	/**
+	 * Searches for the index of a piece of vocabulary given a callback function
+	 * @param {function} callback Function used to find the index of the element
+	 * @throws {NotFoundError} The element searched with callback must be in vocabularyList
+	 * @return {number} Index of the piece of vocabulary given the callback information
+	 */
+	_checkFindIndexElement(callback) {
+		// Find the index of the element
+		var idx = this.vocabularyList.findIndex(callback);
+
+		// Except if -1 index is given
+		if (idx == -1) {
+			throw new NotFoundError("Didn't find any vocabulary matching the given information");
+		}
+
+		return idx;
 	}
 }
 
