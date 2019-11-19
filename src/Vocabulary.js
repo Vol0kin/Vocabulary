@@ -4,22 +4,42 @@ const NotFoundError = require("./exceptions/NotFoundError");
 
 /**
  * Class representing a bunch of words - vocabulary in general
+ * @class
+ * @constructor
+ * @public
  */
 class Vocabulary {
 	/**
 	 * Create a new Vocabulary
 	 */
 	constructor() {
-		this.vocabularyList = [];
+    /**
+     * vocabularyList is a list which contains the vocabulary
+     * @type {Word[]}
+     * @public
+     */
+    this.vocabularyList = [];
+    
+    // Add an example vocabulary
 		this.addVocabulary("hello world", "expression", ["Expression used by programmers when learning a new programming language or tool"]);
 	}
 
 	/**
-	 * Get the allowed type of vocabulary
-	 * @return {string[]} An Array of Strings
+	 * Static attribute that contains the allowed word types
+   * @readonly
+   * @enum {string}s
 	 */
 	static get ALLOWED_TYPES() {
-		return ["noun", "verb", "adverb", "adjective", "preposition", "conjunction", "expression", "determiner"]
+		return {
+      NOUN: "noun",
+      VERB: "verb",
+      ADVERB: "adverb",
+      ADJECTIVE: "adjective",
+      PREPOSITION: "preposition",
+      CONJUNCTION: "conjunction",
+      EXPRESSION: "expression",
+      DETERMINER: "determiner"
+    };
 	}
 
 	/**
@@ -155,7 +175,7 @@ class Vocabulary {
 	 * @throws {ValueError} Value of type must be in allowedTypes
 	 */
 	_checkTypeInAllowedTypes(inputType) {
-		if (!Vocabulary.ALLOWED_TYPES.includes(inputType)) {
+		if (!Object.values(Vocabulary.ALLOWED_TYPES).includes(inputType)) {
 			throw new ValueError('Unvalid value of type. The allowed ones are the following: ' + Vocabulary.ALLOWED_TYPES);
 		}
 	}
