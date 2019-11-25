@@ -85,3 +85,43 @@ gulp.task('doc', function(done) {
 		dest: "docs/apirest/"
 	}, done);
 });
+
+// Task to create Heroku app
+gulp.task('heroku', function(cb) {
+	exec('sudo snap install heroku --classic && heroku login && heroku apps:create --region eu vocabulary-vi && git push heroku master',
+		function(err, stdout, stderr) {
+			console.log(stdout);
+			console.log(stderr);
+			cb(err);
+	});
+});
+
+// Task to create Heroku app using Docker image
+gulp.task('heroku-docker', function(cb) {
+	exec('sudo snap install heroku --classic && heroku login && heroku apps:create --region eu vocabulary-vi && heroku stack:set container && git push heroku master',
+		function(err, stdout, stderr) {
+			console.log(stdout);
+			console.log(stderr);
+			cb(err);
+	});
+});
+
+// Task to create the Docker image
+gulp.task('docker-build', function(cb) {
+	exec('sudo docker build -t vocabulary .',
+		function(err, stdout, stderr) {
+			console.log(stdout);
+			console.log(stderr);
+			cb(err);
+	});
+});
+
+// Task to run the Docker image
+gulp.task('docker-run', function(cb) {
+	exec('sudo docker run -p 8080:8080 vocabulary',
+		function(err, stdout, stderr) {
+			console.log(stdout);
+			console.log(stderr);
+			cb(err);
+	});
+});
