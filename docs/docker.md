@@ -1,4 +1,4 @@
-# Integración de Docker
+# Integración con Docker
 
 ## Definición de la imagen de Docker
 
@@ -95,7 +95,6 @@ Para ejecutar la imagen, simplemente basta con ejecutar la siguiente orden:
 ```sh
 docker run -p 8080:8080 vocabulary
 ```
-
 
 De esta manera, ejecutamos la imagen que hemos creado con el *tag* `vocabulary`,
 y mapeamos el puerto 8080 de la aplicación al 8080 real.

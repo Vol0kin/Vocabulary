@@ -83,6 +83,9 @@ Contenedor: https://vocabulary-vi.herokuapp.com/
 
 Contenedor: https://vocabulary-vi.azurewebsites.net/
 
+Para obtener más información sobre cómo se ha configurado el contenedor
+de Docker, se puede consultar [esta página](https://vol0kin.github.io/Vocabulary/docker)
+
 Para obtener más información, consulta [esta página]().
 
 ## :passenger_ship: Docker Hub
