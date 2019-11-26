@@ -17,6 +17,8 @@
 - [Ejecución de los tests](#heavy_check_mark-ejecuci%C3%B3n-de-los-tests)
 - [Herramienta de construcción](#building_construction-herramienta-de-construcci%C3%B3n)
 - [Despliegue en un PaaS](#cloud-despliegue-en-un-paas)
+- [Despliegue en PaaS con contenedores](#package-despliegue-en-paas-con-contenedores)
+- [Docker Hub](#passenger_ship-docker-hub)
 - [Quiero saber más del proyecto](#mag-quiero-saber-m%C3%A1s-del-proyecto)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -74,6 +76,27 @@ por `gulp`, consulta [esta página](https://vol0kin.github.io/Vocabulary/pm2-ges
 Despliegue: https://vocabulary-vi.herokuapp.com/
 
 Para obtener más información, consulta [esta página](https://vol0kin.github.io/Vocabulary/despliegue).
+
+## :package: Despliegue en PaaS con contenedores
+
+Contenedor: https://vocabulary-vi.herokuapp.com/
+Contenedor: https://vocabulary-vi.azurewebsites.net/
+
+Para obtener más información, consulta [esta página]().
+
+## :passenger_ship: Docker Hub
+
+URL: https://hub.docker.com/repository/docker/volokin/vocabulary
+
+Para descargar y ejecutar la imagen, basta con hacer lo siguiente:
+
+```bash
+docker pull volokin/vocabulary
+docker run vocabulary
+```
+
+Para obtener más inforación sobre el proceso seguido para subir la imagen,
+puedes consultar [esta página]().
 
 ## :mag: Quiero saber más del proyecto
 

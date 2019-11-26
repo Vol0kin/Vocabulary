@@ -34,3 +34,10 @@ que `gulp restart`.
 el directorio `src/`, donde está tanto la clase de gestión como la API REST, entre
 otros. Para generarla, hace uso de [JSDoc](https://jsdoc.app/about-getting-started.html)
 y [apiDoc](https://apidocjs.com/).
+* `gulp heroku`: Permite reproducir la secuencia de pasos para realizar el despliegue
+en Heroku.
+* `gulp heroku-docker`: Permite reproducir la secuencia de pasos para realizar el
+despliegue en Heroku utilizando el Dockerfile presente en el proyecto.
+* `gulp docker-build`: Permite construir la imagen de Docker utilizando el Dockerfile
+presente en el proyecto.
+* `gulp docker-run`: Permite ejecutar la imagen de Docker creada.
