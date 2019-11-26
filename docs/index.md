@@ -45,3 +45,4 @@ más sencilla e intuitiva.
 
 - [Integración con Docker](https://vol0kin.github.io/Vocabulary/docker)
 - [Despliegue del contenedor de Docker en *PaaS*](https://vol0kin.github.io/Vocabulary/docker-paas)
+- [Publicación de la imagen en Docker Hub](https://vol0kin.github.io/Vocabulary/dockerhub)

@@ -86,17 +86,15 @@ Contenedor: https://vocabulary-vi.azurewebsites.net/
 Para obtener más información sobre cómo se ha configurado el contenedor
 de Docker, se puede consultar [esta página](https://vol0kin.github.io/Vocabulary/docker)
 
-Para obtener más información, consulta [esta página]().
+Para obtener más información sobre como se ha realizado el despliegue
+del contenedor, consulta [esta página](https://vol0kin.github.io/Vocabulary/docker-paas).
 
 ## :passenger_ship: Docker Hub
 
 URL: https://hub.docker.com/repository/docker/volokin/vocabulary
 
-Para obtener información sobre la creación y el uso de la imagen, se puede
-consultar [esta página]().
-
 Para obtener más inforación sobre el proceso seguido para subir la imagen,
-puedes consultar [esta página]().
+puedes consultar [esta página](https://vol0kin.github.io/Vocabulary/dockerhub).
 
 ## :mag: Quiero saber más del proyecto
 

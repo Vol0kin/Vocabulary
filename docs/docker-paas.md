@@ -13,8 +13,8 @@ tiene el siguiente contenido:
 
 ```yaml
 build:
-	docker:
-		web: Dockerfile
+ docker:
+   web: Dockerfile
 ```
 
 De esta forma indicamos que queremos constuir una imagen de Docker, y
