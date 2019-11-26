@@ -92,12 +92,8 @@ Para obtener más información, consulta [esta página]().
 
 URL: https://hub.docker.com/repository/docker/volokin/vocabulary
 
-Para descargar y ejecutar la imagen, basta con hacer lo siguiente:
-
-```bash
-docker pull volokin/vocabulary
-docker run -p 8080:8080 vocabulary
-```
+Para obtener información sobre la creación y el uso de la imagen, se puede
+consultar [esta página]().
 
 Para obtener más inforación sobre el proceso seguido para subir la imagen,
 puedes consultar [esta página]().

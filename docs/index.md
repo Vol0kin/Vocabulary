@@ -44,3 +44,4 @@ más sencilla e intuitiva.
 ## Docker
 
 - [Integración con Docker](https://vol0kin.github.io/Vocabulary/docker)
+- [Despliegue del contenedor de Docker en *PaaS*](https://vol0kin.github.io/Vocabulary/docker-paas)
