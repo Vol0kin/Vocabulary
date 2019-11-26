@@ -80,6 +80,7 @@ Para obtener más información, consulta [esta página](https://vol0kin.github.i
 ## :package: Despliegue en PaaS con contenedores
 
 Contenedor: https://vocabulary-vi.herokuapp.com/
+
 Contenedor: https://vocabulary-vi.azurewebsites.net/
 
 Para obtener más información, consulta [esta página]().
@@ -92,7 +93,7 @@ Para descargar y ejecutar la imagen, basta con hacer lo siguiente:
 
 ```bash
 docker pull volokin/vocabulary
-docker run vocabulary
+docker run -p 8080:8080 vocabulary
 ```
 
 Para obtener más inforación sobre el proceso seguido para subir la imagen,
@@ -100,7 +101,5 @@ puedes consultar [esta página]().
 
 ## :mag: Quiero saber más del proyecto
 
-Si eres una mente curiosa y quieres saber más sobre el proyecto, como por ejemplo qué tecnologías y
-requisitos tiene el microservicio, qué opciones tienes a la hora de utilizar la *buildtool* en el
-proyecto, o simplemente quieres consultar la documentación de las clases y de la API REST, por favor,
-redirigete a la página de [documentación adicional](https://vol0kin.github.io/Vocabulary/).
+Si eres una mente curiosa y quieres saber más sobre el proyecto,
+redirígete a la página de [documentación adicional](https://vol0kin.github.io/Vocabulary/).
