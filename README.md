@@ -91,7 +91,7 @@ del contenedor, consulta [esta página](https://vol0kin.github.io/Vocabulary/doc
 
 ## :passenger_ship: Docker Hub
 
-URL: https://hub.docker.com/repository/docker/volokin/vocabulary
+URL: https://hub.docker.com/r/volokin/vocabulary
 
 Para obtener más inforación sobre el proceso seguido para subir la imagen,
 puedes consultar [esta página](https://vol0kin.github.io/Vocabulary/dockerhub).
