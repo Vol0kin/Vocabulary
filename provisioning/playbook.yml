@@ -1,0 +1,49 @@
+---
+- hosts: Vocabulary
+  become: yes
+  vars:
+    NODEJS_VERSION: "12"
+    ansible_distribution_release: "bionic"
+  
+  tasks:
+    - name: Instalar git
+      apt:
+        pkg: git
+        state: present
+    
+    - name: Instalar clave gpg para Node
+      apt_key:
+        url: "https://deb.nodesource.com/gpgkey/nodesource.gpg.key"
+        state: present
+  
+    - name: Añadir repositorio de Node
+      apt_repository:
+        repo: "deb https://deb.nodesource.com/node_{{ NODEJS_VERSION }}.x {{ ansible_distribution_release }} main"
+        state: present
+        update_cache: yes
+  
+    - name: Instalar la version de Node
+      apt:
+        name: nodejs
+        state: present
+    
+    - name: Instalar PM2
+      npm:
+        name: pm2
+        global: yes
+    
+    - name: Instalar Gulp
+      npm:
+        name: gulp
+        global: yes
+    
+    - name: Crear usuario vladislav
+      user:
+        name: vladislav
+        shell: /bin/bash
+    
+    - name: Agregar clave publica para vladislav para conectarse por SSH
+      authorized_key:
+        user: vladislav
+        state: present
+        key: "{{ lookup('file', '/home/vladislav/.ssh/id_rsa.pub') }}"
