@@ -125,3 +125,33 @@ gulp.task('docker-run', function(cb) {
 			cb(err);
 	});
 });
+
+// Task to create VM using Vagrant without provisioning it
+gulp.task('up-no-provision', function(cb) {
+	exec('vagrant up --no-provision',
+	function(err, stdout, stderr) {
+		console.log(stdout);
+		console.log(stderr);
+		cb(err);
+	});
+});
+
+// Task to create VM using Vagrant and to provision it
+gulp.task('up', function(cb) {
+	exec('vagrant up',
+	function(err, stdout, stderr) {
+		console.log(stdout);
+		console.log(stderr);
+		cb(err);
+	});
+});
+
+// Task to stop VM
+gulp.task('halt', function(cb) {
+	exec('vagrant halt',
+	function(err, stdout, stderr) {
+		console.log(stdout);
+		console.log(stderr);
+		cb(err);
+	});
+});
