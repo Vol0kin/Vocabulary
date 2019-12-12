@@ -155,3 +155,13 @@ gulp.task('halt', function(cb) {
 		cb(err);
 	});
 });
+
+// Task to provision a VM
+gulp.task('provision', function(cb) {
+	exec('ansible-playbook provisioning/playbook.yml',
+	function(err, stdout, stderr) {
+		console.log(stdout);
+		console.log(stderr);
+		cb(err);
+	});
+});
