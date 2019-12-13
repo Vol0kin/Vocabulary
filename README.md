@@ -19,6 +19,7 @@
 - [Despliegue en un PaaS](#cloud-despliegue-en-un-paas)
 - [Despliegue en PaaS con contenedores](#package-despliegue-en-paas-con-contenedores)
 - [Docker Hub](#passenger_ship-docker-hub)
+- [Provisionamiento con Ansible utilizando máquina virtual creada con Vagrant](#bread-provisionamiento-con-ansible-utilizando-m%C3%A1quina-virtual-creada-con-vagrant)
 - [Quiero saber más del proyecto](#mag-quiero-saber-m%C3%A1s-del-proyecto)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -95,6 +96,18 @@ URL: https://hub.docker.com/r/volokin/vocabulary
 
 Para obtener más inforación sobre el proceso seguido para subir la imagen,
 puedes consultar [esta página](https://vol0kin.github.io/Vocabulary/dockerhub).
+
+## :bread: Provisionamiento con Ansible utilizando máquina virtual creada con Vagrant
+
+Provision: provisioning/playbook.yml
+
+Para consultar información sobre la configuración de la máquina virtual con Vagrant y la
+subida a Vagrant Cloud, consulta [esta página](https://vol0kin.github.io/Vocabulary/vagrant).
+
+Para consultar información sobre el provisionamiento con Ansible, consulta
+[esta página](https://vol0kin.github.io/Vocabulary/provisionamiento).
+
+Vagrant Cloud: https://app.vagrantup.com/Volokin/boxes/Vocabulary/versions/1.0 
 
 ## :mag: Quiero saber más del proyecto
 
