@@ -1,6 +1,8 @@
-[Vocabulary]
-Vocabulary ansible_ssh_port=2222 ansible_ssh_private_key_file=.vagrant/machines/Vocabulary/virtualbox/private_key
-
-[Vocabulary:vars]
-ansible_ssh_host=127.0.0.1
-ansible_ssh_user=vagrant
+Vocabulary:
+  hosts:
+    Vocabulary:
+      ansible_host: 127.0.0.1
+      ansible_port: 2222
+      ansible_ssh_private_key_file: .vagrant/machines/Vocabulary/virtualbox/private_key
+  vars:
+    ansible_user: vagrant
