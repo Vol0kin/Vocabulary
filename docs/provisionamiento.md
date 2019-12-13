@@ -156,26 +156,14 @@ este caso, definimos la versión de Node que queremos instalar (la 12) en la var
 `NODEJS_VERSION`, y el nombre de la distribución en `ansible_distribution_release`,
 el cuál es **bionic**.
 - `tasks:` especifica un conjunto de tareas que se quieren llevar a cabo.
-  - La primera tarea se encarga de comprobar si está instalado `git` mirando en la lista
-	de paquetes instalados. Si no lo está, lo instala mediante `apt`.
-	- La segunda tarea añade la clave **gpg** de Node a las que tenemos en `apt`
-	valiéndose de `apt-key`. De esta forma se está autenticando la fuente de los
-	paquetes de Node.
-	- La tercera tarea se encarga de añadir a la lista de repositorios el repositorio
-	asociado a la versión de Node 12 para nuestra distribución (Bionic), actualizando
-	en el proceso la caché de `apt` mediante `update_cache: yes`, ya que posteriormente
-	tendremos que instalar el paquete correspondiente.
-	- La cuarta tarea instala la versión de Node especificada anteriormente mediante
-	`apt`.
-	- La quinta tarea instala de forma global (`global: yes`) el gestor de procesos
-	`pm2`, valiéndose para ello de `npm`.
-	- La sexta tarea instala la herramienta de construcción `gulp` de forma global,
-	utilizando de nuevo `npm`.
-	- La séptima tarea crea un usuario llamado `vladislav` y le asocia un *shell*, el cuál
-	será `/bin/bash`. Este usuario será el que en un futuro ejecute el servicio.
-	- La octava tarea permite loguearse como `vladislav` mediante SSH utilizando un par de
-	claves pública-privada. Lo que hace es copiar la clave pública que se puede encontrar en
-	`/home/vladislav/.ssh/id_rsa.pub` y la asocia al usuario `vladislav` creado anteriormente.
+  - La primera tarea se encarga de comprobar si está instalado `git` mirando en la lista de paquetes instalados. Si no lo está, lo instala mediante `apt`.
+	- La segunda tarea añade la clave **gpg** de Node a las que tenemos en `apt` valiéndose de `apt-key`. De esta forma se está autenticando la fuente de los paquetes de Node.
+	- La tercera tarea se encarga de añadir a la lista de repositorios el repositorio asociado a la versión de Node 12 para nuestra distribución (Bionic),  actualizando en el proceso la caché de `apt` mediante `update_cache: yes`, ya que posteriormente tendremos que instalar el paquete correspondiente.
+	- La cuarta tarea instala la versión de Node especificada anteriormente mediante `apt`.
+	- La quinta tarea instala de forma global (`global: yes`) el gestor de procesos `pm2`, valiéndose para ello de `npm`.
+	- La sexta tarea instala la herramienta de construcción `gulp` de forma global, utilizando de nuevo `npm`.
+	- La séptima tarea crea un usuario llamado `vladislav` y le asocia un *shell*, el cuál será `/bin/bash`. Este usuario será el que en un futuro ejecute el servicio.
+	- La octava tarea permite loguearse como `vladislav` mediante SSH utilizando un par de claves pública-privada. Lo que hace es copiar la clave pública que se puede encontrar en `/home/vladislav/.ssh/id_rsa.pub` y la asocia al usuario `vladislav` creado anteriormente.
 
 ## Proceso de provisionamiento
 
