@@ -46,3 +46,11 @@ más sencilla e intuitiva.
 - [Integración con Docker](https://vol0kin.github.io/Vocabulary/docker)
 - [Despliegue del contenedor de Docker en *PaaS*](https://vol0kin.github.io/Vocabulary/docker-paas)
 - [Publicación de la imagen en Docker Hub](https://vol0kin.github.io/Vocabulary/dockerhub)
+
+## Provisionamiento
+
+- [Provisionamiento de una máquina virtual mediante Ansible](https://vol0kin.github.io/Vocabulary/provisionamiento)
+
+## Vagrant
+
+- [Creación de una máquina virtual mediante Vagrant](https://vol0kin.github.io/Vocabulary/vagrant)

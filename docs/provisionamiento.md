@@ -5,7 +5,7 @@ las herramientas necesarias para poder ejecutar el microservicio desarrollado
 hasta el momento.
 
 La creación de la máquina virtual puede verse en
-[esta parte de la documentación]().
+[esta parte de la documentación](https://vol0kin.github.io/Vocabulary/vagrant).
 Aquí vamos a ver cómo podemos provisionar dicha máquina una vez ha sido creada.
 
 La manera más sencilla de provisionar la máquina es utilizar Ansible, una
