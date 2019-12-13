@@ -56,12 +56,133 @@ Vocabulary:
     ansible_user: vagrant
 ```
 
+La primera línea indica que se está creando un grupo de *hosts* llamado *Vocabulary*.
+Después, indicamos los *hosts* que forman parte de este grupo. En este caso, tenemos
+un solo *host* al cuál también hemos llamado *Vocabulary*, ya que es el nombre de la
+máquina virtual creada con Vagrant. Para este *host*, especificamos una serie de variables.
+Indicamos por ejemplo que su dirección IP es la `127.0.0.1`, que el puerto mediante el
+cuál ansible tiene que conectarse por SSH es el `2222` en vez del `22` por defecto, y
+que la clave privada para acceder por SSH se encuentra en el directorio
+`.vagrant/machines/Vocabulary/virtualbox/private_key`. Estas variables se han declarado
+como específicas al *host* debido a que son susceptibles de cambio en caso de tener
+otras máquinas en el mismo grupo. La siguiente parte, `vars:`, indica que las variables
+que van a aparecer a continuación se aplican sobre todo el grupo `Vocabulary`. En este
+caso, se indica que el usuario mediante el cuál se va a establecer una conexión de
+SSH se llama `vagrant`. Esta variable se ha dejado como variable de grupo ya que nos
+puede interesar tener más de una máquina en el grupo que haya sido creada con Vagrant
+para provisionarla, ya que entonces tendrán todas el mismo usuario definido.
 
+> **Nota**: Algunos de los nombres de variables se han adaptado a las últimas versiones
+> de Ansible, ya que `ansible_ssh_port`, `ansible_ssh_host` y `ansible_ssh_user`
+> han sido deprecados y sustituidos por los nombres que se pueden ver en el archivo.
 
 ## Receta: archivo de provisionamiento
 
+El último archivo que queda por ver es el `playbook.yml`, el cuál es la piedra angular
+en el provisionamiento, ya que se especifica qué es lo que se va a provisionar. Este
+archivo o *playbook* puede verse
+[aquí](https://github.com/Vol0kin/Vocabulary/blob/master/provisioning/playbook.yml).
+Vamos primero a ver el archivo de forma general y después comentaremos cada
+parte.
+
+```yaml
+---
+- hosts: Vocabulary
+  become: yes
+  vars:
+    NODEJS_VERSION: "12"
+    ansible_distribution_release: "bionic"
+  
+  tasks:
+    - name: Instalar git
+      apt:
+        pkg: git
+        state: present
+    
+    - name: Instalar clave gpg para Node
+      apt_key:
+        url: "https://deb.nodesource.com/gpgkey/nodesource.gpg.key"
+        state: present
+  
+    - name: Añadir repositorio de Node
+      apt_repository:
+        repo: "deb https://deb.nodesource.com/node_{{ NODEJS_VERSION }}.x {{ ansible_distribution_release }} main"
+        state: present
+        update_cache: yes
+  
+    - name: Instalar la version de Node
+      apt:
+        name: nodejs
+        state: present
+    
+    - name: Instalar PM2
+      npm:
+        name: pm2
+        global: yes
+    
+    - name: Instalar Gulp
+      npm:
+        name: gulp
+        global: yes
+    
+    - name: Crear usuario vladislav
+      user:
+        name: vladislav
+        shell: /bin/bash
+    
+    - name: Agregar clave publica para vladislav para conectarse por SSH
+      authorized_key:
+        user: vladislav
+        state: present
+        key: "{{ lookup('file', '/home/vladislav/.ssh/id_rsa.pub') }}"
+```
+
+> Antes de continuar, y como pequeña nota aclaratoria, me gustaría decir que se
+> ha intentado instalar Node utilizando `nvm` aunque sin demasiado éxito ya que,
+> o no se instalaba correctamente o había problemas para acceder a los recursos
+> instalados. Buscando alguna solución, encontré que la forma más sencilla
+> de instalar alguna versión específica de Node es la que se puede ver en
+> [esta respusta](https://stackoverflow.com/a/45844178). Por tanto, he
+> cogido la respuesta proporcionada y la he adaptado a lo que necesitaba.
+
+Vamos a ver ahora qué es lo que hace cada línea:
+
+- La línea de `hosts` incluye el grupo al que se quiere provisionar. En este caso,
+se trata del grupo `Vocabulary` definido en el `ansible_hosts`.
+- `become: yes` indica que se van a adquirir permisos de super usuario para poder
+realizar las tareas que vienen a continuación.
+- `vars` indica una lista de variables que pueden sernos útiles más adelante. En
+este caso, definimos la versión de Node que queremos instalar (la 12) en la variable
+`NODEJS_VERSION`, y el nombre de la distribución en `ansible_distribution_release`,
+el cuál es **bionic**.
+- `tasks:` especifica un conjunto de tareas que se quieren llevar a cabo.
+  - La primera tarea se encarga de comprobar si está instalado `git` mirando en la lista
+	de paquetes instalados. Si no lo está, lo instala mediante `apt`.
+	- La segunda tarea añade la clave **gpg** de Node a las que tenemos en `apt`
+	valiéndose de `apt-key`. De esta forma se está autenticando la fuente de los
+	paquetes de Node.
+	- La tercera tarea se encarga de añadir a la lista de repositorios el repositorio
+	asociado a la versión de Node 12 para nuestra distribución (Bionic), actualizando
+	en el proceso la caché de `apt` mediante `update_cache: yes`, ya que posteriormente
+	tendremos que instalar el paquete correspondiente.
+	- La cuarta tarea instala la versión de Node especificada anteriormente mediante
+	`apt`.
+	- La quinta tarea instala de forma global (`global: yes`) el gestor de procesos
+	`pm2`, valiéndose para ello de `npm`.
+	- La sexta tarea instala la herramienta de construcción `gulp` de forma global,
+	utilizando de nuevo `npm`.
+	- La séptima tarea crea un usuario llamado `vladislav` y le asocia un *shell*, el cuál
+	será `/bin/bash`. Este usuario será el que en un futuro ejecute el servicio.
+	- La octava tarea permite loguearse como `vladislav` mediante SSH utilizando un par de
+	claves pública-privada. Lo que hace es copiar la clave pública que se puede encontrar en
+	`/home/vladislav/.ssh/id_rsa.pub` y la asocia al usuario `vladislav` creado anteriormente.
+
 ## Proceso de provisionamiento
 
+Ahora ya solo nos queda provisionar la máquina. Para ello, lo primero que hace
+falta hacer es levantar la máquina virtual, bien mediante `vagrant up --no-provision`
+o bien mediante `gulp up-no-provision` (queremos provisionar la máquina con Ansible,
+no con Vagrant). Un ejemplo se puede ver a continución:
 
 ```bash
 $ vagrant up --no-provision
@@ -107,6 +228,11 @@ Bringing machine 'Vocabulary' up with 'virtualbox' provider...
 ==> Vocabulary: Machine not provisioned because `--no-provision` is specified.
 ```
 
+Una vez se ha levantado la máquina, podemos provisionarla. Para ello, podemos
+ejecutar o bien `ansible-playbook provisioning/playbook.yml` o bien
+`gulp provision`. En el ejemplo siguient se ha hecho de la primera forma,
+para que quede más claro:
+
 ```bash
 $ ansible-playbook provisioning/playbook.yml 
 [WARNING]: Found both group and host with same name: Vocabulary
@@ -144,4 +270,29 @@ changed: [Vocabulary]
 PLAY RECAP ***********************************************************************************************************************************************************************************************************************************
 Vocabulary                 : ok=9    changed=7    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 
+```
+
+Podemos ver en la salida que se ha provisionado la máquina correctamente, y que
+`git` ya estaba instalado (el `status` de la primera tarea estaba a `present` desde
+el principio). El resto de tareas se han tenido que ejecutar, ya que se ve que a su
+lado aparece `changed`.
+
+Ahora nos podemos loguear en la máquina y ver que todo está correctamente instalado.
+Para ello, vamos a conectarnos utilizando el usuario creado anteriormente y vamos
+a ver que todo está presente:
+
+```bash
+$ ssh -p 2222 vladislav@localhost
+
+vladislav@ubuntu-bionic:~$ git --version
+git version 2.17.1
+vladislav@ubuntu-bionic:~$ node --version
+v12.13.1
+vladislav@ubuntu-bionic:~$ pm2 --version
+[PM2] Spawning PM2 daemon with pm2_home=/home/vladislav/.pm2
+[PM2] PM2 Successfully daemonized
+4.2.1
+vladislav@ubuntu-bionic:~$ gulp --version
+CLI version: 2.2.0
+Local version: Unknown
 ```
