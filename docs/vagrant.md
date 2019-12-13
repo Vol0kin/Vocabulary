@@ -111,3 +111,30 @@ si no que lo hace sobre la marcha). Es importante destacar que, de momento,
 mediante `ansible-playbook`, aunque se ha dejado para que el ejemplo de máquina
 virtual con provisionamiento sea más completo.
 
+## Publicación de la máquina virtual
+
+Una vez que hemos definido nuestra máquina, podemos subirla a internet para que
+sea accesible por otras personas. Un lugar donde podemos subir nuestras máquinas
+es Vagrant Cloud. El proceso para subir la máquina es muy sencillo. Lo primero
+que tenemos que hacer es registrarnos. Una vez que lo hemos hecho, estaremos en una
+página donde podemos escoger crear una nueva *box*. Le damos a esta opción y rellenamos
+los campos tal y como se puede ver a continuación:
+
+![Vagrant Cloud Create](img/vagrant-box.png)
+
+Una vez que la hemos creado, debemos subir la máquina. Para ello, debemos crear
+un archivo *.box* que contenga la máquina. La forma más sencilla de crear
+dicho archivo es la siguiente:
+
+```bash
+$ vagrant package --output Vocabulary.box
+```
+
+Una vez que lo tenemos, le damos a la opción de añadir un proveedor y rellenamos
+los datos de la siguiente forma:
+
+![Vagrant Cloud Provider](img/vagrant-create.png)
+
+Y ahora ya solo nos queda hacer un *release*. Una vez que lo hagamos, la máquina
+será accesible para los usuarios. Para acceder a la máquina de este proyecto, se
+puede consultar [este enlace](https://app.vagrantup.com/Volokin/boxes/Vocabulary/versions/1.0).
